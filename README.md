@@ -1,7 +1,7 @@
 # Hackintosh-HP-Z420-620-820-OpenCore
 **OpenCore 0.7.1 Loader for HP Z420/620/820**. 
 
-This is my OC setup for HP Z420/620/820 workstations. All patching's are done either via OC hot-patching or SSDT add-on's, so no custom patching of a full DSDT is required. Thus this loader can be used for any said HP units. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management (See below for detail). You've also need to generate your own SMBIOS/Serial #, of course.
+This is my OC setup for HP Z420/620/820 workstations. All patching's are done either via OC hot-patching or SSDT add-on's, so no custom patching of a full DSDT is required. Thus this loader can be used for any said HP units. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management (See below for detail). Of course, you've also need to generate your own SMBIOS/Serial #.
 
 **My systems:**
 
@@ -12,14 +12,14 @@ This is my OC setup for HP Z420/620/820 workstations. All patching's are done ei
 **Opencore/macOS:**
 
 - OC 0.7.1
-- Catalina 10.15.7 - Everything works, except Sleep. USB3 at full speed, for storage device. But other USB3 funcionality has not fully tested.
-- Big Sur 11.5.1 - Same as Catalina, except USB3 is not functional (attaching storage device wiil not mount, but attaching mouse/keyboard works, however.)
+- Catalina 10.15.7 - Everything works, except Sleep. Audio via AppleALC. USB3 at full speed, for storage device.
+- Big Sur 11.5.1 - Same as Catalina, except USB3 is not functional (attaching mouse/keyboard works, however.)
 
 **Credits:**
 
-- bilbo's "Z820 - High Sierra, the Great Guide" (here: https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/), and many of the follow-up contributions in the same forum
-- What I have done:
-	1) Hot-patching the IRQs conflicts. This finally allows me to move all key patchings, in this case Realtek audio, from DSDT (as done bilbo's guide) to SSDT. Thus the loader is no longer tied to a specific machine/bios configuration, and can be used acrossed other compatible systems (Z420/Z620/Z820's) 
-	2) Nailed now the single kernal patch required for Apple CPU Power Management to work.
+- bilbo's "Z820 - High Sierra, the Great Guide" (here: https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/), and many of the follow-up contributions in the same forum.
+- **What I have done:**
+	- Succeeded in hot-patching the IRQs conflicts. This has finally enabled me to move all key patchings in DSDT (as were done in bilbo's guide) to SSDT, resulting in a loader not tied to a static machine/bios configuration.
+	- Nailed now the single kernal patch required for Apple CPU Power Management to work.
 	
 	
