@@ -17,10 +17,10 @@ This is my OC setup for HP Z420/620/820 workstations. All patching's are done ei
 
 **Credits:**
 
-- bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/) , and many of the follow-up contributions in the same forum (especially to: antonio.clb, amadeusex).
+- [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
+- bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), and many of the follow-up contributions in the same forum (especially to: antonio.clb & amadeusex, for their success examples with newer macOS).
 - **What I have done:**
-	- Succeeded in hot-patching the IRQs conflicts. This has finally enabled me to move all key patchings in DSDT (as were done in bilbo's guide) to SSDT, resulting in a loader not tied to a static machine/bios configuration.
-	- Nailed now the single kernal patch required for Apple CPU Power Management to work.
+	- Succeeded in hot-patching the IRQs conflicts. This has finally allow me to move the Realtek Audio patching to SSDT. DSDT patching, as was done in bilbo's guide, is no longer needed, resulting in more compatible loader not tied to a static machine/bios configuration.
+	- Singled down the only kernal patch required for Apple CPU Power Management for Catalina/Big Sur (at least for this HP machine).
 	
-	
-** More to come **
+My journey started with bilbo's great guide. Even though it was written for Clover/High Sierra and no longer directly applies to newer macOS, but many of the patching can be transferred to newer setup. The key knowledge I leant from bilbo's guide is his collection of patches required for this HP machine and the method to generate the final DSDT for Clover to load. It allowed to gain good understanding of what the key patches are. People had reported success in the above forum, to obtain a full working systems either with Clover or OpenCore. A fully working setup, kring systems can also load this DSDT and people have reported success In addition to a compatible BIOS, other patches funbilbo's guide has inspired many to try the new macOS A fully patched DSDT could be thought as a macOS "compatible" BIOS. by following bilbio's guide can also be used for Many had already shared their success in the forum above . A fully working It allowed me gain some understanding of the key patches and how they were fixed. Feedbacks : fix syntax errors (OC takes care of them on-the-fly), USB rename (and poIRQ conflict ) A fully working system would need to load this to Use of this DSDT allowed successfully running Catalina, and Big Sur. It has inspired mme, a newbie of three months now, and many others to continue enjoy these everlasting HP machines. 
