@@ -1,7 +1,7 @@
 # Hackintosh-HP-Z420-620-820-OpenCore
-OpenCore 0.7.1 loader for HP Z420/620/820. 
-
-This is my OC setup for HP Z420/620/820 workstations. All patching are done either via OC hot-patching or SSDT add-on's, so no custom patching of a full DSDT is required. Thus this loader should work on any said HP units. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management (See below for detail).
+**OpenCore 0.7.1 Loader for HP Z420/620/820. 
+**
+This is my OC setup for HP Z420/620/820 workstations. All patching's are done either via OC hot-patching or SSDT add-on's, so no custom patching of a full DSDT is required. Thus this loader can be used for any said HP units. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management (See below for detail). You've also need to generate your own SMBIOS/Serial #, of course.
 
 My systems:
 
@@ -17,7 +17,7 @@ Opencore/macOS:
 
 Credits:
 
-- bilbo's "Z820 - High Sierra, the Great Guide" (here), and many of the follow-up contributions in the same forum
+- bilbo's "Z820 - High Sierra, the Great Guide" (here: https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/), and many of the follow-up contributions in the same forum
 - What I have done:
 	1) Hot-patching the IRQs conflicts. This finally allows me to move all key patchings, in this case Realtek audio, from DSDT (as done bilbo's guide) to SSDT. Thus the loader is no longer tied to a specific machine/bios configuration, and can be used acrossed other compatible systems (Z420/Z620/Z820's) 
 	2) Nailed now the single kernal patch required for Apple CPU Power Management to work.
