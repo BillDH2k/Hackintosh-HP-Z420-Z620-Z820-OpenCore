@@ -17,7 +17,7 @@ This is my OC setup for HP Z420/620/820 workstations. All patching's are done ei
 
 **Credits:**
 
-- bilbo's "Z820 - High Sierra, the Great Guide" (here: https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/), and many of the follow-up contributions in the same forum.
+- bilbo's "Z820 - High Sierra, the Great Guide" ([here] (https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), and many of the follow-up contributions in the same forum (especially to: antonio.clb, amadeusex).
 - **What I have done:**
 	- Succeeded in hot-patching the IRQs conflicts. This has finally enabled me to move all key patchings in DSDT (as were done in bilbo's guide) to SSDT, resulting in a loader not tied to a static machine/bios configuration.
 	- Nailed now the single kernal patch required for Apple CPU Power Management to work.
