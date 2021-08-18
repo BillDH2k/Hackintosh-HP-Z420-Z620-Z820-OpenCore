@@ -23,3 +23,4 @@ This is my OC setup for HP Z420/620/820 workstations. All patching's are done ei
 	- Nailed now the single kernal patch required for Apple CPU Power Management to work.
 	
 	
+** More to come **
