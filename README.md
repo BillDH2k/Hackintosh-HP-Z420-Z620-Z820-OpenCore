@@ -1,6 +1,6 @@
 # Hackintosh-HP-Z420-620-820-OpenCore
-**OpenCore 0.7.1 Loader for HP Z420/620/820. 
-**
+**OpenCore 0.7.1 Loader for HP Z420/620/820**. 
+
 This is my OC setup for HP Z420/620/820 workstations. All patching's are done either via OC hot-patching or SSDT add-on's, so no custom patching of a full DSDT is required. Thus this loader can be used for any said HP units. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management (See below for detail). You've also need to generate your own SMBIOS/Serial #, of course.
 
 My systems:
