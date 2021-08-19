@@ -1,12 +1,14 @@
 # Hackintosh-HP-Z420-620-820-OpenCore
 **(still under construction)**. 
 
-This is my OC 0.7.1 setup for HP Z420/620/820 workstations. All patching are done either via OC hot-patching or SSDT add-on's, so custom patching/loading of DSDT is not required (true OC way). Thus this loader can be used for all three HP models. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management (See below for detail). Of course, you will need to generate your own SMBIOS/Serial #.
+This is my OC 0.7.1 setup for HP Z420/620/820 workstations. Works for Catalina (10.15.7, everthing works, except Sleep) and Big Sur (11.5.1, similar to Catalina, except on-board USB3). 
+
+All patching are done either via OC hot-patching or SSDT add-on's, so custom patching/loading of DSDT is not required (true OC way). Thus this loader can be used for all three HP models. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management (See below for detail). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
 
 **My systems:**
 
 - Z820/Z620/Z420 (BIOS 3.96), Xeon 2760 V1, 2650 V2, or 2680 V2 (Single or Dual)
-- SSD SATA drive or NvMe SSD on PCI-E adapter
+- SSD SATA drive or NvMe SSD on PCI-E adapter (need a Sata HD installed for hosting EFI loader)
 - GTX 680 or Radeon 290/390X graphics (Both are supported out of the box by macOS)
   
 **Opencore/macOS:**
@@ -22,29 +24,29 @@ This is my OC 0.7.1 setup for HP Z420/620/820 workstations. All patching are don
 
 **What I have done:**
 
-- Hot-patching of the IRQs conflicts: TMR(0), PIC(2), RTC0(8). Previously, this was done with a patched DSDT (bilbo's method). Without this fix, the on-board audio will not work. With this hot-patching fix, audio can be enabled through SSDT, and custom DSDT is not required. The OC loader is no longer tied to a static machine/bios configuration, thus more compatible.
+- Hot-patching of the IRQs conflicts: TMR(0), PIC(2), RTC0(8). Previously, this was done with a patched DSDT (bilbo's method). Without this fix, the on-board audio will not work. Now with hot-patching, audio can be enabled through SSDT, and custom DSDT is no longer required. The OC loader is not tied to a static machine/bios configuration, thus more compatible.
 - Verified the single kernal patch required for Apple CPU Power Management (Catalina/Big Sur), at least for this HP setup.
 
 How I did it?
 
-I stated from a clean OC 0.7.1, followed though OC Guide for High End Desktop. Then, added additional kext and SSDT's. Configured config.plist to include additional ACPI and kernal patchings, explained below. 
+I stated from a clean OC 0.7.1, followed though OC Guide for High End Desktop. Then, added additional kext (copied from a working ) and SSDT's. Configured config.plist to include additional ACPI and kernal patchings, explained below. 
 
 **Included in this EFI folder:**
 
 - OC 0.7.1 base files (debug version)
 - ACPI folder:
-	- SSDT-EC.aml		- For Embedded Controller, manually created, via OC Guide
+	- SSDT-EC.aml		- for Embedded Controller, manually created, via OC Guide
 	- SSDT-HPET.aml		- IRQ patching. Created with SDDTTime, via OC Guide.
 	- SSDT-HDEF.aml		- for Realtek ALC262 audio injection (imported from bilbo's guide)
-	- SSDT-IMEI.aml		- For IMEI, via OC Guide
+	- SSDT-IMEI.aml		- for IMEI, via OC Guide
 	- SSDT-UIAC-ALL.aml	- USB2 port mapping (from bilbo's guide)
-	- SSDT-UNC.aml		- Probably not needed, via OC Guide
-	- SSDT-DTGP.aml		- Required to enable custom device injection
+	- SSDT-UNC.aml		- probably not needed, via OC Guide
+	- SSDT-DTGP.aml		- required to enable custom device injection
 	
 	(CPU specific - rename the matching file to SSDT-CPU.aml)
 	- SSDT-2670.aml		- E5-2670 CPU file, created with ssdtPRGen (see bilbo's guide)
-	- SSDT-2650V2.aml	- E5-2650v2 CPU
-	- SSDT-2680V2.aml	- E5-2680v2 CPU
+	- SSDT-2650V2.aml	- E5-2650v2 CPU, ...
+	- SSDT-2680V2.aml	- E5-2680v2 CPU, ...
 	
 - Kexts folder:
 	- AppleALC.kext
@@ -56,7 +58,7 @@ I stated from a clean OC 0.7.1, followed though OC Guide for High End Desktop. T
 	- mXHCD.kext						USB3 driver, works for TI-chip under Catalina
 	- USBInjectAll.kext					Still needed?
 	- VirtualSMC.kext
-	- VoodooTSCSync.kext
+	- VoodooTSCSync.kext				Need to modify info.plist 
 	- WhateverGreen.kext
 	
 - ACPI Hot-Patching (config.plist - ROOT->ACPI->Patch)
