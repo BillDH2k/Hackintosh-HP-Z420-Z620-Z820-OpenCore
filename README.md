@@ -29,9 +29,9 @@ This is my OC 0.7.1 setup for HP Z420/620/820 workstations. All patching are don
 
 - OC 0.7.1 base files (debug version)
 - ACPI folder:
-	- SSDT-EC.aml		For	Embedded Controller, manually created, Opencore Guide
-	- SSDT-HPET.aml		IRQ patching. Created with SDDTTime, Opencore Guide.
-	- SSDT-HDEF.aml		(Realtek)
+	- SSDT-EC.aml		- For Embedded Controller, manually created, Opencore Guide
+	- SSDT-HPET.aml		- IRQ patching. Created with SDDTTime, Opencore Guide.
+	- SSDT-HDEF.aml		- (Realtek)
 	
 	
 My journey started with bilbo's guide, as newbie two months ago. Even though the guide was written for Clover/High Sierra, many of the patching can be transferred to newer macOS setup. Apart from helpful insights, one key point I leant from bilbo's guide is to gain an understanding of the important ACPI fixes required for this HP system, though his collection of patches used to create the final DSDT. Inspired by this guide, many have attempted and reported back with success for Catalina (using Clover) and couple of couple of succes in the above forum finWith fully patched DSDT, success were reported in the above forum for Catalina (fully working) with Clover, as well as Big Sur (missing USB3).  Though many of the fixes, such as sytax errors, are handled by Opencore automatically now, I gained a good understanding of what the key ACPI patches are for this HP system, such as missing audio and IRQ conflict fix. This helped me finally created this OC loader. People inspired by the guide had reported some success with Catalina/Big Sur (visit who followed bilbo's guide had reported success, with additional tweeking, on Catalina, using Clover. One user (A couple of success with Opencore (in the forum, to obtain full working setup's either with Clover or OpenCore. They were all required to load a fully patched DSDT. Otherwise, ob-board audio will not work. 
