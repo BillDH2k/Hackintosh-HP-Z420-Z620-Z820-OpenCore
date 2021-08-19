@@ -17,8 +17,8 @@ This is my OC setup for HP Z420/620/820 workstations. All patching's are done ei
 
 **Credits:**
 
-- [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
-- bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), and many of the follow-up contributions in the same forum (especially to: antonio.clb & amadeusex, for their success examples with newer macOS).
+- Dortania's OpenCore Install Guide ([Here](https://dortania.github.io/OpenCore-Install-Guide/))
+- bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), and many of the follow-up contributions in the same forum.
 - **What I have done:**
 	- Succeeded in hot-patching the IRQs conflicts. This has finally allow me to move the Realtek Audio patching to SSDT. DSDT patching, as was done in bilbo's guide, is no longer needed, resulting in more compatible loader not tied to a static machine/bios configuration.
 	- Singled down the only kernal patch required for Apple CPU Power Management for Catalina/Big Sur (at least for this HP machine).
