@@ -15,7 +15,7 @@ All patching are done either via OC hot-patching or SSDT add-on's. Thus this loa
 
 - OC 0.7.1
 - Catalina 10.15.7 - Everything works, except Sleep. Audio via AppleALC. USB3 at full speed, for storage device.
-- Big Sur 11.5.1 - Same as Catalina, except USB3 ports (storage device not mounting, but mouse/keyboard device works)
+- Big Sur 11.5.1 - Same as Catalina, except USB3 ports (storage device will not mount)
 
 **Credits:**
 
@@ -32,15 +32,15 @@ I stated from a clean OC 0.7.1, followed though OC Guide for High End Desktop. T
 
 **Included in this EFI folder:**
 
-- OC 0.7.1 base files (debug version)
-- ACPI folder:
-	- SSDT-EC.aml		- for Embedded Controller, manually created, via OC Guide
-	- SSDT-HPET.aml		- IRQ patching. Created with SDDTTimes, via OC Guide. It also creates code for TMR(0) fix (manually added to config.plist). 
-	- SSDT-HDEF.aml		- for Realtek ALC262 audio injection (Created by me, with codes imported from bilbo's guide)
+- **OC 0.7.1** base files (debug version)
+- **ACPI folder:**
+	- SSDT-EC.aml		- For Embedded Controller, via OC Guide
+	- SSDT-HPET.aml		- IRQ patching. Created with SDDTTimes, via OC Guide.. 
+	- SSDT-HDEF.aml		- for Realtek ALC262 audio injection (Imported from bilbo's guide)
 	- SSDT-IMEI.aml		- for IMEI, via OC Guide
 	- SSDT-UIAC-ALL.aml	- USB2 port mapping (from bilbo's guide)
 	
-	- SSDT-CPUPM.aml	- CpuPM description for proper CPU power management. It is created with ssdtPRGen, required this HPP motherboard (X79). I generated a few for my systems, listed below. Replace it (i.e. copied over) with one of the following file that matched your CPU model. Or, you could modify conifg.plist to load one of the choice following     
+	- SSDT-CPUPM.aml	- Custom CPU SSDT for proper CPU power management. Created with ssdtPRGen (bilbo's guide has good information). I generated a few for my systems, listed below. Replace it (i.e. copied over) with one of the following file that matched your CPU model. Or, you could modify conifg.plist to load one of the choice following     
 	
 	(The following are CPU specific SSDTs for proper CPU power management. Without them, macOS will still run but without loader - rename the matching file to SSDT-CPU.aml)
 	- SSDT-2670.aml		- E5-2670 CPU file, created with ssdtPRGen (bilbo's guide and the same forum have good examples)
@@ -48,7 +48,7 @@ I stated from a clean OC 0.7.1, followed though OC Guide for High End Desktop. T
 	- SSDT-2680V2.aml	- E5-2680v2 CPU, ...
 	- SSDT-1620v2.aml	- E5-1620v2 CPU
 	
-- Kexts folder:
+- **Kexts folder:**
 	- Lilu.kext
 	- WhateverGreen.kext
 	- AppleMCEReporterDisabler.kext
