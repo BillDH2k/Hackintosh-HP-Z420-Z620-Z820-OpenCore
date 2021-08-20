@@ -3,12 +3,13 @@
 
 This is my OC 0.7.1 setup for HP Z420/620/820 workstations. Tested to work for latest version of Catalina (10.15.7, everthing, except Sleep Mode) and Big Sur (11.5.1, except Sleep/USB3). 
 
-This loader can be used for all three HP models. All patchings are done via hot-patching or SSDT add-on's, thus no need for a patched DSDT, resulting a more compatible loader. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management, if your CPU is different from the ones I used (See below). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
+This loader can be used for all three HP models. All fixes are done via hot-patching or SSDT add-on's, thus no need for a patched DSDT, resulting in a more compatible loader. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management, if your CPU model is different from the ones I used (see below). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
 
 **My systems:**
 
 - Z820/Z620/Z420 (BIOS 3.96), Mixed CPUs: 2760 V1, 2650 V2, or 2680 V2 (Single or Dual)
-- SSD SATA drive or NvMe SSD on PCI-E adapter (Need a Sata HD for hosting OC loader)
+- SSD SATA drive or 
+- NvMe SSD on a PCI-E adapter (Need a Sata HD for hosting OC loader)
 - GTX 680 or Radeon 290/390X graphics (Both are supported out of the box by macOS)
   
 **Opencore/macOS:**
