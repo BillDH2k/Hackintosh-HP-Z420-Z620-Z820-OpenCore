@@ -1,13 +1,13 @@
 # Hackintosh-HP-Z420-620-820-OpenCore
 **(still under construction)**. 
 
-This is my OC 0.7.1 setup for HP Z420/620/820 workstations. Works for Catalina (10.15.7, everthing works, except Sleep Mode) and Big Sur (11.5.1, Sleep/USB3 not working). 
+This is my OC 0.7.1 setup for HP Z420/620/820 workstations. Test to work for latest version of Catalina (10.15.7, everthing works, except Sleep Mode) and Big Sur (11.5.1, Sleep/USB3 not working). 
 
 All patching are done either via OC hot-patching or SSDT add-on's. Thus this loader can be used for all three HP models. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management (Read below). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
 
 **My systems:**
 
-- Z820/Z620/Z420 (BIOS 3.96), Xeon 2760 V1, 2650 V2, or 2680 V2 (Single or Dual)
+- Z820/Z620/Z420 (BIOS 3.96), Mixed CPUs: 2760 V1, 2650 V2, or 2680 V2 (Single or Dual)
 - SSD SATA drive or NvMe SSD on PCI-E adapter (Need a Sata HD for hosting OC loader)
 - GTX 680 or Radeon 290/390X graphics (Both are supported out of the box by macOS)
   
