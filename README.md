@@ -3,12 +3,12 @@
 
 This is my OC 0.7.1 setup for HP Z420/620/820 workstations. Works for Catalina (10.15.7, everthing works, except Sleep Mode) and Big Sur (11.5.1, Sleep/USB3 not working). 
 
-All patching are done either via OC hot-patching or SSDT add-on's, so custom patching/loading of DSDT is not required (true OC way). Thus this loader can be used for all three HP models. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management (Read below). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
+All patching are done either via OC hot-patching or SSDT add-on's. Thus this loader can be used for all three HP models. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management (Read below). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
 
 **My systems:**
 
 - Z820/Z620/Z420 (BIOS 3.96), Xeon 2760 V1, 2650 V2, or 2680 V2 (Single or Dual)
-- SSD SATA drive or NvMe SSD on PCI-E adapter (need a Sata HD installed for hosting EFI loader)
+- SSD SATA drive or NvMe SSD on PCI-E adapter (Need a Sata HD for hosting OC loader)
 - GTX 680 or Radeon 290/390X graphics (Both are supported out of the box by macOS)
   
 **Opencore/macOS:**
@@ -20,27 +20,27 @@ All patching are done either via OC hot-patching or SSDT add-on's, so custom pat
 **Credits:**
 
 - Dortania's OpenCore Install Guide ([Here](https://dortania.github.io/OpenCore-Install-Guide/))
-- bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), and many of the follow-up contributions in the same forum. This was where my journey started two months ago! Learnt a lot from it.
+- bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), and many of the follow-up contributions in the same forum. My build would be be possible without these guy's work.
 
 **What I have done:**
 
-- Hot-patching of the IRQs conflicts: TMR(0), PIC(2), RTC0(8). Previously, this fix was done with a fully patched DSDT (as shown in bilbo's guide). With this hot-patching, audio can be properly enabled via SSDT, and custom DSDT is no longer required, resulting in a loader not tied to a static machine/bios configuration, thus more compatible for all machine models and setups.
-- Verified the two kernal patches for Apple CPU Power Management (Catalina/Big Sur), at least for this HP setup.
+- Hot-patching of the IRQs conflicts: TMR(0), PIC(2), RTC0(8). This has finally allowed me to enable the on-board audio via SSDT, and get away from using DSDT completely. The result is a working loader not tied to a static machine/bios configuration, thus more compatible for all machine models and setups.
 
 **How I did it?**
 
-I stated from a clean OC 0.7.1, followed though OC Guide for High End Desktop. Then, added additional kext and SSDT's. Configured config.plist to include additional ACPI and kernal patchings, explained below. 
+I stated from a clean OC 0.7.1, followed though OC Guide for High End Desktop. Then, added additional kext and SSDT's. Configured config.plist to include additional ACPI and kernal patchings. The EFI folder is explained below. 
 
 **Included in this EFI folder:**
 
 - OC 0.7.1 base files (debug version)
 - ACPI folder:
 	- SSDT-EC.aml		- for Embedded Controller, manually created, via OC Guide
-	- SSDT-HPET.aml		- IRQ patching. Created with SDDTTimes, via OC Guide. It also creates TMR(0) hot-patching fix. For this HP unit, I added patching PIC(2) and RTC0(8). 
-	- SSDT-HDEF.aml		- for Realtek ALC262 audio injection (imported from bilbo's guide)
+	- SSDT-HPET.aml		- IRQ patching. Created with SDDTTimes, via OC Guide. It also creates code for TMR(0) fix (manually added to config.plist). 
+	- SSDT-HDEF.aml		- for Realtek ALC262 audio injection (Created by me, with codes imported from bilbo's guide)
 	- SSDT-IMEI.aml		- for IMEI, via OC Guide
-	- SSDT-UIAC-ALL.aml	- USB2 port mapping (borrowed from bilbo's guide)
-	- SSDT-CPUPM.aml	- CpuPM SDDT for proper CPU power management. Replace it (copied over) with one of the following  
+	- SSDT-UIAC-ALL.aml	- USB2 port mapping (from bilbo's guide)
+	
+	- SSDT-CPUPM.aml	- CpuPM description for proper CPU power management. It is created with ssdtPRGen, required this HPP motherboard (X79). I generated a few for my systems, listed below. Replace it (i.e. copied over) with one of the following file that matched your CPU model. Or, you could modify conifg.plist to load one of the choice following     
 	
 	(The following are CPU specific SSDTs for proper CPU power management. Without them, macOS will still run but without loader - rename the matching file to SSDT-CPU.aml)
 	- SSDT-2670.aml		- E5-2670 CPU file, created with ssdtPRGen (bilbo's guide and the same forum have good examples)
