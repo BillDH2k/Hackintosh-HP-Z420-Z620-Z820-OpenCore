@@ -26,7 +26,7 @@ This loader can be used for all three HP models. All fixes are done via hot-patc
 **What I have done:**
 
 - Hot-patching of the IRQs conflicts: TMR(0), PIC(2), RTC0(8). 
-- Note: This has finally allowed me to enable the on-board audio via SSDT, and get away from using DSDT completely. The result is a working loader not tied to a static machine/bios configuration, thus more compatible for all machine models and setups.
+- Note: Without this fix, on-board audio will not work. This has finally allowed me to move all key patches to SSDT without completely. The result is a working loader not tied to a static machine/bios configuration, thus more compatible for all machine models and setups.
 
 **How I did it?**
 
