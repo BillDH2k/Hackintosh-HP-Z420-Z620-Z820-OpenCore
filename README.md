@@ -10,13 +10,13 @@ This loader can be used for all three HP models. All fixes are done via hot-patc
 - Z820/Z620/Z420 (BIOS 3.96), Mixed CPUs: 2760 V1, 2650 V2, or 2680 V2 (Single or Dual)
 - SSD SATA drive or 
 - NvMe SSD on a PCI-E adapter (Need a Sata HD for hosting OC loader)
-- GTX 680 or Radeon 290/390X graphics (Both are supported out of the box by macOS)
+- GTX 680 or Radeon 290/390X (Both are supported out of the box)
   
 **Opencore/macOS:**
 
 - OC 0.7.1
-- Catalina 10.15.7 - Everything works, except Sleep. Audio via AppleALC. USB3 at full speed, for storage device.
-- Big Sur 11.5.1 - Same as Catalina, except USB3 ports (storage device will not mount)
+- Catalina 10.15.7 - Everything works, except Sleep. Audio via AppleALC. USB3 at full speed.
+- Big Sur 11.5.1 - Same as above, except USB3 ports (storage device will not mount)
 
 **Credits:**
 
@@ -25,7 +25,8 @@ This loader can be used for all three HP models. All fixes are done via hot-patc
 
 **What I have done:**
 
-- Hot-patching of the IRQs conflicts: TMR(0), PIC(2), RTC0(8). This has finally allowed me to enable the on-board audio via SSDT, and get away from using DSDT completely. The result is a working loader not tied to a static machine/bios configuration, thus more compatible for all machine models and setups.
+- Hot-patching of the IRQs conflicts: TMR(0), PIC(2), RTC0(8). 
+- Note: This has finally allowed me to enable the on-board audio via SSDT, and get away from using DSDT completely. The result is a working loader not tied to a static machine/bios configuration, thus more compatible for all machine models and setups.
 
 **How I did it?**
 
