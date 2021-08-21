@@ -46,7 +46,7 @@ I started from a clean OC 0.7.1, followed though OC Guide for High End Desktop. 
 	- SDDT-OTHERS.aml	- Misc items placed in here: "SMBus" fix via OC Guide. 
 	- SSDT-UIAC-ALL.aml	- USB2 port mapping (from bilbo's guide)
 	
-	- SSDT-CPUPM.aml	- Custom CPU SSDT for proper CPU power management. Replace it with one that matches your CPU model. Then, enable this SSDT via config.plist (ACPI->Add, find "SDDT-CPUPM.aml" entry, change "Enabled" key to "True". Save & Reboot). Without this, yout CPU will not have full CPU Power manegement. (Read me below)
+	- SSDT-CPUPM.aml	- Custom CPU SSDT for proper CPU power management. Replace it with one that matches your CPU model (I have included a few modelss below). Then, enable this SSDT via config.plist (ACPI->Add, find "SDDT-CPUPM.aml" entry, change "Enabled" key to "True". Save & Reboot). Without this, yout CPU will not have full CPU Power manegement. (Read more below)
 	
 	
 - **Kexts folder:**
@@ -76,9 +76,9 @@ I started from a clean OC 0.7.1, followed though OC Guide for High End Desktop. 
 	- "Apple CPU Power Management Patch #8"		- "7511B9" -> "EB11B9"
 	
 
-- **About SSDT-CPUPM.aml:**
+- **About SSDT-CPUPM.aml**
 	
-	Before enable it, replace this SSDT with one that matches your CPU. I have provided a few models below. If your CPU is different, you need to generate one, using ssdtPRGen (bilbo's [guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/) has good coverage on this, including special instructions for E5-26X7 variants CPUs).
+	Here are a few CPU SSDTsBefore enable it, replace this SSDT with one that matches your CPU. I have provided a few models below. If your CPU is different, you need to generate one, using ssdtPRGen (bilbo's [guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/) has good coverage on this, including special instructions for E5-26X7 variants CPUs).
 	
 	(The following are CPU PM SSDTs I created for my systems. You may use the one that matches your CPU to replace SSDT-CPUPM.aml above.)
 	- SSDT-2670.aml		- E5-2670 CPU, Single or Dual
