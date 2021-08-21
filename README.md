@@ -5,7 +5,7 @@ This is my OC 0.7.1 setup for HP Z420/620/820 workstations. Tested for Catalina 
 
 This loader can be used for all three HP models. All fixes are done via hot-patching or SSDT's, thus no need for a patched DSDT, resulting in a more compatible loader. 
 
-For **post-install**, enable full CPU power management, by enabling the CPU specific SSDT (SSDT-CPUPM.aml) from the config.plst (ACPI->Add section, find entry for SSDT-CPUPM.aml, change "Enabled" key value to "True". Save, and reboot). You may need to generate your own CPU specific SSDT if your CPU model is different from the ones I used (more about this below). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
+For **post-install:** enable full CPU power management, by enabling this CPU specific SSDT-CPUPM.aml (via config.plist, ACPI->Add section, find entry for SSDT-CPUPM.aml, change "Enabled" key value to "True"). You may need to generate your own CPU specific SSDT if your CPU model is different from the ones I used (more about this below). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
 
 **My systems:**
 
