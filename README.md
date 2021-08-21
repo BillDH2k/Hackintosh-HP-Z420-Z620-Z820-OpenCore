@@ -3,12 +3,14 @@
 
 This is my OC 0.7.1 setup for HP Z420/620/820 workstations. Tested for Catalina (latest 10.15.7, everthing works, except Sleep Mode) and Big Sur (latest 11.5.1, except Sleep/USB3). 
 
-This loader can be used for all three HP models. All fixes are done via hot-patching or SSDT's, thus no need for a patched DSDT, resulting in a more compatible loader. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management, if your CPU model is different from the ones I used (see below). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
+This loader can be used for all three HP models. All fixes are done via hot-patching or SSDT's, thus no need for a patched DSDT, resulting in a more compatible loader. 
+
+For post-install, enable the CPU specific SSDT (SSDT-CPUPM.aml) from config.plist (ACPI->Add section)you may need to generate your own CPU specific SSDT to enable full CPU Power Management, if your CPU model is different from the ones I used (see below). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
 
 **My systems:**
 
 - Z820/Z620/Z420 (BIOS 3.96)
-- Mixed CPUs: 2760 V1, 2650 V2, or 2680 V2 (Single or Dual)
+- Processors: 2760 V1, 2650 V2, or 2680 V2 (Single or Dual)
 - SSD SATA drive or NvMe SSD on a PCI-E adapter (Note on NvMe: a SATA HD is needed to host OC loader)
 - GTX 680 or Radeon 290/390X (Both are supported out of the box)
   
@@ -21,7 +23,7 @@ This loader can be used for all three HP models. All fixes are done via hot-patc
 **Credits:**
 
 - Dortania's OpenCore Install Guide ([Here](https://dortania.github.io/OpenCore-Install-Guide/))
-- bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), and many of the follow-up contributions in the same forum. My build would be be possible without these guy's work.
+- bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), and many of the follow-up contributions in the same forum. My build would be be possible without those guy's work.
 
 **What I have done:**
 
@@ -31,7 +33,7 @@ This loader can be used for all three HP models. All fixes are done via hot-patc
 
 **How I did it?**
 
-I stated from a clean OC 0.7.1, followed though OC Guide for High End Desktop. Then, added additional kext and SSDT's. Configured config.plist to include additional ACPI and kernal patchings. The key content of my EFI folder is shown below. 
+I stated from a clean OC 0.7.1, followed though OC Guide for High End Desktop. Then, added additional kext and SSDT's. Configured additional ACPI and kernal patchings. The key content of my EFI folder is shown below. 
 
 **Included in this EFI folder:**
 
