@@ -11,7 +11,7 @@ For **post-install:** enable full CPU power management, by enabling this CPU spe
 
 - Z820/Z620/Z420 (BIOS 3.96)
 - Processors: 2760 V1, 2650 V2, or 2680 V2 (Single or Dual)
-- SSD SATA drive or NvMe SSD on a PCI-E adapter (Note on NvMe: a SATA HD is needed to host OC loader)
+- SSD SATA drive or NvMe SSD on a PCI-E adapter (NvMe: SATA HD is needed to host OC loader)
 - GTX 680 or Radeon 290/390X (Both are supported out of the box)
   
 **Opencore/macOS:**
@@ -28,12 +28,12 @@ For **post-install:** enable full CPU power management, by enabling this CPU spe
 **What I have done:**
 
 - Hot-patching of the IRQs conflicts: TMR(0), PIC(2), RTC0(8). 
-- Previously, this fix was done with a fully patched DSDT (i.e. static patching, as shown in bilbo's guide). Without it, the on-board audio will not work with AppleALC. Now, all key fixes can be done via SSDT, resulting in a loader not tied to a specific machine/BIOS/setup configuration. 
+- Previously, this fix was done with a fully patched DSDT (bilbo's guide). Without it, the on-board audio will not work with AppleALC. Now, all key fixes can be done via SSDT, resulting in a loader not tied to a specific machine/BIOS/setup configuration. 
 
 
 **How I did it?**
 
-I stated from a clean OC 0.7.1, followed though OC Guide for High End Desktop. Then, added additional kext and SSDT's. Configured additional ACPI and kernal patchings. The key content of my EFI folder is shown below. 
+I started from a clean OC 0.7.1, followed though OC Guide for High End Desktop. Then, added additional kext and SSDT's, as well as ACPI and kernal patchings. The key content of my EFI folder is shown below. 
 
 **Included in this EFI folder:**
 
