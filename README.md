@@ -5,7 +5,7 @@ This is my OC 0.7.1 setup for HP Z420/620/820 workstations. Tested for Catalina 
 
 This loader can be used for all three HP models. All fixes are done via hot-patching or SSDT's, thus no need for a patched DSDT, resulting in a more compatible loader. 
 
-For **post-install:** enable full CPU power management, by enabling this CPU specific SSDT, "SSDT-CPUPM.aml", via config.plist (ACPI->Add section, find entry for SSDT-CPUPM.aml, change "Enabled" key value to "True"). You amy need to generate your own CPU SSDT if your CPU model is different from the ones I used (read more below). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
+For **post-install:** enable full CPU power management, by enabling this CPU specific SSDT, "SSDT-CPUPM.aml", in config.plist. You will need to replace this SSDT with one that matches your CPU model. I have provided a few from my systems. You need to generate your own CPU SSDT if your have a different CPU model (read more below). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
 
 **My systems:**
 
@@ -28,7 +28,7 @@ For **post-install:** enable full CPU power management, by enabling this CPU spe
 **What I have done:**
 
 - Hot-patching of the IRQs conflicts: TMR(0), PIC(2), RTC0(8). 
-- Without this fix, on-board audio will not work with AppleALC. Finally, all key fixes can be done via SSDT, resulting in a loader not tied to a specific machine/BIOS/setup configuration. 
+- This fix is required for on-board audio to work with AppleALC. Now, static DSDT patching is not necessary, and all key fixes can be done via SSDT, resulting in a loader not tied to a specific machine/BIOS/setup configuration. 
 
 
 **How I did it?**
@@ -46,7 +46,10 @@ I started from a clean OC 0.7.1, followed though OC Guide for High End Desktop. 
 	- SDDT-OTHERS.aml	- Misc items placed in here: "SMBus" fix via OC Guide. 
 	- SSDT-UIAC-ALL.aml	- USB2 port mapping (from bilbo's guide)
 	
-	- SSDT-CPUPM.aml	- Custom CPU SSDT for proper CPU power management, unique for each CPU model. Currently not enabled. So your initial install does not have full CPU PM. You can enable this SSDT via config.plist (ACPI->Add, find "SDDT-CPUPM.aml" entry, change "Enabled" key to "True"). Before enable it, replace this SSDT with one that matches your CPU. I have provided a few models below. If your CPU is different, you need to generate one, using ssdtPRGen (bilbo's [guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/) has good coverage on this, including special instructions for E5-26X7 variants CPUs).
+	- SSDT-CPUPM.aml	- Custom CPU SSDT for proper CPU power management. Replace it with one that matches your CPU model. Once you have the correct SDDT, enable this via config.plist (ACPI->Add, find "SDDT-CPUPM.aml" entry, change "Enabled" key to "True". Save & Reboot). 
+	
+	
+	Before enable it, replace this SSDT with one that matches your CPU. I have provided a few models below. If your CPU is different, you need to generate one, using ssdtPRGen (bilbo's [guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/) has good coverage on this, including special instructions for E5-26X7 variants CPUs).
 	
 	(The following are CPU PM SSDTs I created for my systems. You may use the one that matches your CPU to replace SSDT-CPUPM.aml above.)
 	- SSDT-2670.aml		- E5-2670 CPU, Single or Dual
