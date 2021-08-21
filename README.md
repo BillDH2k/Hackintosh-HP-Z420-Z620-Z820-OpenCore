@@ -1,5 +1,4 @@
 # Hackintosh-HP-Z420-620-820-OpenCore
-**(still under construction)**. 
 
 This is my OC 0.7.1 setup for HP Z420/620/820 workstations. Tested for Catalina (latest 10.15.7, everthing works, except Sleep Mode) and Big Sur (latest 11.5.1, except Sleep/USB3). 
 
