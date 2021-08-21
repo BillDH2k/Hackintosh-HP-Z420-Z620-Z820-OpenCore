@@ -7,7 +7,8 @@ This loader can be used for all three HP models. All fixes are done via hot-patc
 
 **My systems:**
 
-- Z820/Z620/Z420 (BIOS 3.96), Mixed CPUs: 2760 V1, 2650 V2, or 2680 V2 (Single or Dual)
+- Z820/Z620/Z420 (BIOS 3.96)
+- Mixed CPUs: 2760 V1, 2650 V2, or 2680 V2 (Single or Dual)
 - SSD SATA drive or NvMe SSD on a PCI-E adapter (Note on NvMe: a SATA HD is needed to host OC loader)
 - GTX 680 or Radeon 290/390X (Both are supported out of the box)
   
