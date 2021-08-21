@@ -3,13 +3,12 @@
 
 This is my OC 0.7.1 setup for HP Z420/620/820 workstations. Tested to work for latest version of Catalina (10.15.7, everthing, except Sleep Mode) and Big Sur (11.5.1, except Sleep/USB3). 
 
-This loader can be used for all three HP models. All fixes are done via hot-patching or SSDT add-on's, thus no need for a patched DSDT, resulting in a more compatible loader. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management, if your CPU model is different from the ones I used (see below). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
+This loader can be used for all three HP models. All fixes are done via hot-patching or SSDT's, thus no need for a patched DSDT, resulting in a more compatible loader. For post-install, you may need to generate your own CPU specific SSDT to enable full CPU Power Management, if your CPU model is different from the ones I used (see below). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
 
 **My systems:**
 
 - Z820/Z620/Z420 (BIOS 3.96), Mixed CPUs: 2760 V1, 2650 V2, or 2680 V2 (Single or Dual)
-- SSD SATA drive or 
-- NvMe SSD on a PCI-E adapter (Need a Sata HD for hosting OC loader)
+- SSD SATA drive or NvMe SSD on a PCI-E adapter (Note on NvMe: a SATA HD is needed to host OC loader)
 - GTX 680 or Radeon 290/390X (Both are supported out of the box)
   
 **Opencore/macOS:**
@@ -26,11 +25,12 @@ This loader can be used for all three HP models. All fixes are done via hot-patc
 **What I have done:**
 
 - Hot-patching of the IRQs conflicts: TMR(0), PIC(2), RTC0(8). 
-- Note: Without this fix, on-board audio will not work. This has finally allowed me to move all key patches to SSDT without completely. The result is a working loader not tied to a static machine/bios configuration, thus more compatible for all machine models and setups.
+- Previously, this fix was done with a fully patched DSDT (i.e. static patching, as shown in bilbo's guide). Without it, the on-board audio will not work with AppleALC. Now, all key fixes can be done via SSDT, resulting in a loader not tied to a specific machine/BIOS/setup configuration. 
+
 
 **How I did it?**
 
-I stated from a clean OC 0.7.1, followed though OC Guide for High End Desktop. Then, added additional kext and SSDT's. Configured config.plist to include additional ACPI and kernal patchings. The EFI folder is explained below. 
+I stated from a clean OC 0.7.1, followed though OC Guide for High End Desktop. Then, added additional kext and SSDT's. Configured config.plist to include additional ACPI and kernal patchings. The key content of my EFI folder is shown below. 
 
 **Included in this EFI folder:**
 
@@ -40,6 +40,7 @@ I stated from a clean OC 0.7.1, followed though OC Guide for High End Desktop. T
 	- SSDT-HPET.aml		- IRQ patching. Created with SDDTTimes, via OC Guide.. 
 	- SSDT-HDEF.aml		- for Realtek ALC262 audio injection (Imported from bilbo's guide)
 	- SSDT-IMEI.aml		- for IMEI, via OC Guide
+	- SDDT-OTHERS.aml	- Misc items I placed in here: "SMBus" fix via OC Guide. 
 	- SSDT-UIAC-ALL.aml	- USB2 port mapping (from bilbo's guide)
 	
 	- SSDT-CPUPM.aml	- Custom CPU SSDT for proper CPU power management. Created with ssdtPRGen (bilbo's guide has good information). I generated a few for my systems, listed below. Replace it (i.e. copied over) with one of the following file that matched your CPU model. Or, you could modify conifg.plist to load one of the choice following     
