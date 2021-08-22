@@ -8,8 +8,8 @@ Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional. You
 
 **Post-install:** 
 
-1. Update the Serial #. The one in this EFI folder is anonnymized, for install only. DO NOT USE it with your Apple ID!
-2. For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simple overwrite "SSDT-CPUPM.aml" file with an appropriate one. If you have a different CPU from mine, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file (check out bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), an excellent resource for Z820 hacking). If you have mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml. macOs will run just fine, without full CPU management. Once up running, you can generate a correct SSDT specific to your CPU. 
+1. Update the Serial #. The one in this EFI folder is anonymous #, for install only. DO NOT USE it with your Apple ID!
+2. For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simply overwrite "SSDT-CPUPM.aml" file with an appropriate one. If you have a different CPU from mine, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file (check out bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), an excellent resource for Z820 hacking). If you have mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml. macOs will run just fine, without full CPU management. Once up running, you can generate a correct SSDT specific to your CPU. 
 
 **My systems:**
 
