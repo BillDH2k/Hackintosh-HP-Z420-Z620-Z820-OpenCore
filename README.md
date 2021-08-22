@@ -1,10 +1,8 @@
 # Hackintosh-HP-Z420-620-820-OpenCore
 
-This is my OC 0.7.1 setup for HP Z420/620/820 workstations. Tested for Catalina (latest 10.15.7, everthing works, except Sleep Mode) and Big Sur (latest 11.5.1, except Sleep/USB3). 
+This is my OC 0.7.1 setup for HP Z420/620/820 workstations. Tested for Catalina (latest 10.15.7, everthing works, except Sleep Mode. Some minor issue with USB3) and Big Sur (latest 11.5.1, except Sleep/USB3).
 
-This loader can be used for all three HP models. All fixes are done via hot-patching or SSDT's, thus no need for a patched DSDT, resulting in a more compatible loader. 
-
-For **post-install:** enable full CPU power management, by enabling this CPU specific SSDT, "SSDT-CPUPM.aml", in config.plist. You will need to replace this SSDT with one that matches your CPU model. I have provided a few from my systems. You need to generate your own CPU SSDT if your have a different CPU model (read more below). Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #.
+For **post-install:** For full CPU power management, you may need to create your own CPU specific SSDT (ssdtPRGen). I have included a few I created for my systems. Simpley replace "SSDT-CPUPM.aml", in ACPI fodler, with one matching your CPU model. If your CPU is different, you need to run ssdtPRGen on your target sustem ro create this SSDT file (check out biblo's "[Z820 - High Sierra, the Great Guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)". Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #. The one in this EFI folder is anonnymized, for install only. DO NOT USE it with your Apple ID!
 
 **My systems:**
 
