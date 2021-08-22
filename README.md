@@ -37,7 +37,7 @@ Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional. You
 	- SSDT-HPET.aml		- IRQ patching. Created with SDDTTimes, via OC Guide.
 	- SSDT-HDEF.aml		- for Realtek ALC262 audio injection (Imported from bilbo's DSDT patch)
 	- SSDT-IMEI.aml		- for IMEI (imported from bilbo's DSDT patch)
-	- SDDT-OTHERS.aml	- Misc items placed in here: "SMBus" fix via OC Guide. 
+	- SSDT-OTHERS.aml	- Misc items placed in here: "SMBus" fix via OC Guide. 
 	- SSDT-UIAC-ALL.aml	- USB2 port mapping for HP ZX20's (from bilbo's guide)
 	
 	- SSDT-CPUPM.aml	- Custom CPU SSDT for proper CPU power management. Replace this file with one that matches your CPU model (I have included a few models below). You need to create a new one if your CPU is different. bilbo's guide also has good coverage on this topic, including special instructions for 26X3 & 26X7 CPU variants.
