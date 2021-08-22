@@ -9,7 +9,7 @@ Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional.
 **Post-install:** 
 
 1. Update the Serial #. The one in this EFI folder is anonnymized, for install only. DO NOT USE it with your Apple ID!
-2. For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems (in ACPI folder). Simple overwrite "SSDT-CPUPM.aml" file with an appropriate one. If you have a different CPU from mine, you need to run ssdtPRGen ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file (check out biblo's "[Z820 - High Sierra, the Great Guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/), an excellent resource for HPZ820".
+2. For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simple overwrite "SSDT-CPUPM.aml" file with an appropriate one. If you have a different CPU from mine, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file (check out biblo's "[Z820 - High Sierra, the Great Guide]"(https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/), an excellent resource for HPZ820).
 
 **My systems:**
 
@@ -20,13 +20,13 @@ Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional.
   
 **Credits:**
 
-- bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)). His fully patched DSDT showed me what the key ACPI fixes are. Also many of the follow-up posts in the same forum. My build would be be possible without thsse guy's work.
+- bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)). Also many of the follow-up posts in the same forum. My build would be be possible without these guy's work.
 - Dortania's OpenCore Install Guide ([Here](https://dortania.github.io/OpenCore-Install-Guide/))
 
 **What I did differently (not claiming to be the 1st):**
 
 - Hot-patching of the IRQs conflicts: TMR(0), PIC(2), RTC0(8). 
-- This patch is necessary for on-board audio to work with AppleALC. Now, static DSDT patching is no longer necessary, as all key fixes can be done with SSDTs, resulting in a more flexable OC loader. 
+- This patch is necessary for on-board audio to work with AppleALC. With this hot fix, all key patches can be done with SSDTs, resulting in a more flexable OC loader. 
 
 
 **Included in this EFI folder:**
