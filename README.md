@@ -58,7 +58,7 @@ Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional. You
 	- AstekFusion2Family.kext			- Z820 SAS controller
 	- AstekFusion2Adapter.kext			- Z820 SAS controller
 	- AppleIntelE1000e.kext				- Intel LANs (supports two ports)
-	- mXHCD.kext						- Old USB3 driver, works for TI-chip under Catalina (mostly). Not not under Big Sur.
+	- mXHCD.kext						- Old USB3 driver, works for TI-chip with Catalina (mostly), not with Big Sur.
 	- USBInjectAll.kext
 	- VoodooTSCSync.kext
 	- AppleALC.kext
