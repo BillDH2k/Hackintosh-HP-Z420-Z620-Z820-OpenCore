@@ -4,12 +4,12 @@ This is my OC 0.7.1 setup for HP Z420/620/820 workstations. It supports all thre
 
 Catalina 10.15.7 - Everthing works, except Sleep mode and some minor issue with USB3. USB3 at full speed for attached storage device. Other USB3 attaching perepherals, however, is a hit-and-miss.
 
-Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional.
+Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional. You would need to add a compatible USB3 card.
 
 **Post-install:** 
 
 1. Update the Serial #. The one in this EFI folder is anonnymized, for install only. DO NOT USE it with your Apple ID!
-2. For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simple overwrite "SSDT-CPUPM.aml" file with an appropriate one. If you have a different CPU from mine, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file (check out biblo's "[Z820 - High Sierra, the Great Guide]"(https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/), an excellent resource for HPZ820).
+2. For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simple overwrite "SSDT-CPUPM.aml" file with an appropriate one. If you have a different CPU from mine, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file (check out biblo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/), an excellent resource for Z820 hacking). If you have mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml. macOs will run just fine, without full CPU management. Once up running, you can generate a correct SSDT specific to your CPU. 
 
 **My systems:**
 
@@ -40,7 +40,7 @@ Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional.
 	- SDDT-OTHERS.aml	- Misc items placed in here: "SMBus" fix via OC Guide. 
 	- SSDT-UIAC-ALL.aml	- USB2 port mapping for HP ZX20's (from bilbo's guide)
 	
-	- SSDT-CPUPM.aml	- Custom CPU SSDT for proper CPU power management. Replace this file with one that matches your CPU model (I have included a few models below). You need to create a new one if your CPU is different. bilbo's [guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/) also has good coverage on this topic, including special instructions for E5-26X3, 26X7 variants CPUs.
+	- SSDT-CPUPM.aml	- Custom CPU SSDT for proper CPU power management. Replace this file with one that matches your CPU model (I have included a few models below). You need to create a new one if your CPU is different. bilbo's guide also has good coverage on this topic, including special instructions for 26X3 & 26X7 CPU variants.
 
 	The following are a few CPU SSDTs I created for my systems: 
 	- SSDT-2670.aml		- E5-2670 CPU, Single or Dual
@@ -55,16 +55,16 @@ Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional.
 	- AppleMCEReporterDisabler.kext
 	- VirtualSMC.kext
 	- NVMeFix.kext	
-	- AstekFusion2Family.kext			- SAS controller (Z820 only. Can be removed if not needed)
-	- AstekFusion2Adapter.kext			- SAS controller (Z820 only. Can be removed if not needed)
+	- AstekFusion2Family.kext			- Z820 SAS controller
+	- AstekFusion2Adapter.kext			- Z820 SAS controller
 	- AppleIntelE1000e.kext				- Intel LANs (supports two ports)
-	- mXHCD.kext						- Old USB3 driver, works for TI-chip under Catalina. Not fully working under Big Sur.
+	- mXHCD.kext						- Old USB3 driver, works for TI-chip under Catalina (mostly). Not not under Big Sur.
 	- USBInjectAll.kext
 	- VoodooTSCSync.kext
-	- AppleALC.kext						- Audio driver
+	- AppleALC.kext
 	
 - ACPI Hot-Patching (config.plist - ROOT->ACPI->Patch)
-	- "HPE _CRS to XCRS Rename"			- Part of the HPET IRQ fix from OC Guide
+	- "HPE _CRS to XCRS Rename"			- Part of the HPET IRQ fix, from OC Guide
 	- "TMR IRQ 0 Fix"					- Fix TMR (0) IRQ
 	- "PIC IRQ 2 Fix"					- Fix PCI(2) IRQ
 	- "RTC0 IRQ 8 Fix"					- Fix RTC0(8) IRQ
