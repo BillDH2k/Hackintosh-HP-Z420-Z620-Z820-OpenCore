@@ -8,35 +8,26 @@ Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional.
 
 **Post-install:** 
 
-For full CPU power management, you need to replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simple overwrite this SSDT file with an appropriate one . If your CPU is different, you need to run ssdtPRGen ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) on the target sustem ro create this SSDT file (check out biblo's "[Z820 - High Sierra, the Great Guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)". Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #. The one in this EFI folder is anonnymized, for install only. DO NOT USE it with your Apple ID!
+1. Update the Serial #. The one in this EFI folder is anonnymized, for install only. DO NOT USE it with your Apple ID!
+2. For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems (in ACPI folder). Simple overwrite "SSDT-CPUPM.aml" file with an appropriate one. If you have a different CPU from mine, you need to run ssdtPRGen ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file (check out biblo's "[Z820 - High Sierra, the Great Guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/), an excellent resource for HPZ820".
 
 **My systems:**
 
 - Z820/Z620/Z420 (BIOS 3.96)
-- Processors: 1620 V2, 2760 V1, 2650 V2, 2680 V2 (Single or Dual)
+- Processors: 1620 v2, 2760 v1, 2650 v2, 2680 v2 (Single or Dual)
 - SSD SATA drive or NvMe SSD on a PCI-E adapter (NvMe: SATA HD is needed to host OC loader)
 - GTX 680 or Radeon 290/390X (Both are supported out of the box)
   
-**Opencore/macOS:**
-
-- OC 0.7.1
-- Catalina 10.15.7 - Everything works, except Sleep. USB3 at full speed, for direct attached storage device 
-- Big Sur 11.5.1 - Same as above, except USB3 ports (storage device will not mount)
-
 **Credits:**
 
+- bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)). His fully patched DSDT showed me what the key ACPI fixes are. Also many of the follow-up posts in the same forum. My build would be be possible without thsse guy's work.
 - Dortania's OpenCore Install Guide ([Here](https://dortania.github.io/OpenCore-Install-Guide/))
-- bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), and many of the follow-up contributions in the same forum. My build would be be possible without those guy's work.
 
-**What I have done:**
+**What I did differently (not claiming to be the 1st):**
 
 - Hot-patching of the IRQs conflicts: TMR(0), PIC(2), RTC0(8). 
-- This fix is required for on-board audio to work with AppleALC. Now, static DSDT patching is not necessary, and all key fixes can be done via SSDT, resulting in a loader not tied to a specific machine/BIOS/setup configuration. 
+- This patch is necessary for on-board audio to work with AppleALC. Now, static DSDT patching is no longer necessary, as all key fixes can be done with SSDTs, resulting in a more flexable OC loader. 
 
-
-**How I did it?**
-
-I started from a clean OC 0.7.1, followed though OC Guide for High End Desktop. Then, added additional kext and SSDT's, as well as ACPI and kernal patchings. The key content of my EFI folder is shown below. 
 
 **Included in this EFI folder:**
 
@@ -49,9 +40,9 @@ I started from a clean OC 0.7.1, followed though OC Guide for High End Desktop. 
 	- SDDT-OTHERS.aml	- Misc items placed in here: "SMBus" fix via OC Guide. 
 	- SSDT-UIAC-ALL.aml	- USB2 port mapping for HP ZX20's (from bilbo's guide)
 	
-	- SSDT-CPUPM.aml	- Custom CPU SSDT for proper CPU power management. Currently not enabled. Replace this file with one that matches your CPU model (I have included a few modelss below). Then, enable this SSDT via config.plist (ACPI->Add, find "SDDT-CPUPM.aml" entry, change "Enabled" key to "True". Save & Reboot).
+	- SSDT-CPUPM.aml	- Custom CPU SSDT for proper CPU power management. Replace this file with one that matches your CPU model (I have included a few models below). You need to create a new one if your CPU is different. bilbo's [guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/) also has good coverage on this topic, including special instructions for E5-26X3, 26X7 variants CPUs.
 
-	The following are a few CPU SSDTs I created for my systems. If your CPU is not listed here, you need to create one using [ssdtPRGen](https://github.com/Piker-Alpha/ssdtPRGen.sh). bilbo's [guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/) also has good coverage on this topic, including special instructions for E5-26X3, 26X7 variants CPUs.
+	The following are a few CPU SSDTs I created for my systems: 
 	- SSDT-2670.aml		- E5-2670 CPU, Single or Dual
 	- SSDT-2650V2.aml	- E5-2650v2 CPU, ...
 	- SSDT-2680V2.aml	- E5-2680v2 CPU, ...
@@ -63,7 +54,7 @@ I started from a clean OC 0.7.1, followed though OC Guide for High End Desktop. 
 	- WhateverGreen.kext
 	- AppleMCEReporterDisabler.kext
 	- VirtualSMC.kext
-	- NVMeFix.kext						- NvMe driver (BIOS does not support direct booting. Need a Sata HD installed to host OC)
+	- NVMeFix.kext	
 	- AstekFusion2Family.kext			- SAS controller (Z820 only. Can be removed if not needed)
 	- AstekFusion2Adapter.kext			- SAS controller (Z820 only. Can be removed if not needed)
 	- AppleIntelE1000e.kext				- Intel LANs (supports two ports)
