@@ -6,7 +6,9 @@ Catalina 10.15.7 - Everthing works, except Sleep mode and some minor issue with 
 
 Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional.
 
-For **post-install:** For full CPU power management, you need to replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simple overwrite this SSDT file with an appropriate one . If your CPU is different, you need to run ssdtPRGen ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) on the target sustem ro create this SSDT file (check out biblo's "[Z820 - High Sierra, the Great Guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)". Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #. The one in this EFI folder is anonnymized, for install only. DO NOT USE it with your Apple ID!
+**Post-install:** 
+
+For full CPU power management, you need to replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simple overwrite this SSDT file with an appropriate one . If your CPU is different, you need to run ssdtPRGen ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) on the target sustem ro create this SSDT file (check out biblo's "[Z820 - High Sierra, the Great Guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)". Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #. The one in this EFI folder is anonnymized, for install only. DO NOT USE it with your Apple ID!
 
 **My systems:**
 
