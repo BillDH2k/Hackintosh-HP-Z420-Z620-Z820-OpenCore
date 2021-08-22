@@ -1,8 +1,12 @@
 # Hackintosh-HP-Z420-620-820-OpenCore
 
-This is my OC 0.7.1 setup for HP Z420/620/820 workstations. Tested for Catalina (latest 10.15.7, everthing works, except Sleep Mode. Some minor issue with USB3) and Big Sur (latest 11.5.1, except Sleep/USB3).
+This is my OC 0.7.1 setup for HP Z420/620/820 workstations. It supports all three HP models. Tested for latest Catalina and Big Sur.
 
-For **post-install:** For full CPU power management, you may need to create your own CPU specific SSDT (ssdtPRGen). I have included a few I created for my systems. Simpley replace "SSDT-CPUPM.aml", in ACPI fodler, with one matching your CPU model. If your CPU is different, you need to run ssdtPRGen on your target sustem ro create this SSDT file (check out biblo's "[Z820 - High Sierra, the Great Guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)". Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #. The one in this EFI folder is anonnymized, for install only. DO NOT USE it with your Apple ID!
+Catalina 10.15.7 - Everthing works, except Sleep mode and some minor issue with USB3. USB3 at full speed for attached storage device. Other USB3 attaching perepherals, however, is a hit-and-miss.
+
+Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional.
+
+For **post-install:** For full CPU power management, you need to replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simple overwrite this SSDT file with an appropriate one . If your CPU is different, you need to run ssdtPRGen ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) on the target sustem ro create this SSDT file (check out biblo's "[Z820 - High Sierra, the Great Guide](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)". Of course, you will also need to generate your own SMBIOS MacPro6,1/Serial #. The one in this EFI folder is anonnymized, for install only. DO NOT USE it with your Apple ID!
 
 **My systems:**
 
@@ -14,7 +18,7 @@ For **post-install:** For full CPU power management, you may need to create your
 **Opencore/macOS:**
 
 - OC 0.7.1
-- Catalina 10.15.7 - Everything works, except Sleep. Audio via AppleALC. USB3 at full speed.
+- Catalina 10.15.7 - Everything works, except Sleep. USB3 at full speed, for direct attached storage device 
 - Big Sur 11.5.1 - Same as above, except USB3 ports (storage device will not mount)
 
 **Credits:**
