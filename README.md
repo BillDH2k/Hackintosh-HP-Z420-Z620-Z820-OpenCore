@@ -9,7 +9,7 @@ Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional. You
 **Post-install:** 
 
 1. Update the Serial #. The one in this EFI folder is anonymous #, for install only. DO NOT USE it with your Apple ID!
-2. For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simply overwrite "SSDT-CPUPM.aml" file with an appropriate one. If you have a different CPU from mine, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file (check out bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), an excellent resource for Z820 hacking). If you have mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml. macOs will run just fine, without full CPU management. Once up running, you can generate a correct SSDT specific to your CPU. 
+2. For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simply overwrite "SSDT-CPUPM.aml" file with an appropriate one. If you have a different CPU from mine, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file (check out bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), an excellent resource for Z820 hacking). If you have a mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml. macOs will run just fine, without full CPU power management. Once up running, you can generate a correct SSDT specific to your CPU. 
 
 **My systems:**
 
@@ -66,7 +66,7 @@ Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional. You
 - ACPI Hot-Patching (config.plist - ROOT->ACPI->Patch)
 	- "HPE _CRS to XCRS Rename"			- Part of the HPET IRQ fix, from OC Guide
 	- "TMR IRQ 0 Fix"					- Fix TMR (0) IRQ
-	- "PIC IRQ 2 Fix"					- Fix PCI(2) IRQ
+	- "PIC IRQ 2 Fix"					- Fix PIC(2) IRQ
 	- "RTC0 IRQ 8 Fix"					- Fix RTC0(8) IRQ
 	- "EUSB to EH01 Rename"				- USB rename
 	- "USBE to EH02 Rename"				- USB rename
