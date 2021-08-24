@@ -1,4 +1,4 @@
-# Hackintosh-HP-Z420-620-820-OpenCore
+# Hackintosh-HP-Z420-Z620-Z820-OpenCore
 
 This is my OC 0.7.1 setup for HP Z420/620/820 workstations. It supports all three HP models. Tested for latest Catalina and Big Sur.
 
