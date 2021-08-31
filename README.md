@@ -9,7 +9,7 @@ Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional. You
 **Post-install:** 
 
 1. Update the Serial #. The one in this EFI folder is anonymous #, for install only. DO NOT USE it with your Apple ID!
-2. For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simply overwrite "SSDT-CPUPM.aml" file with an appropriate one. If you have a different CPU from mine, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file (check out bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), an excellent resource for Z820 hacking). If you have a mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml. macOs will run just fine, without full CPU power management. Once up running, you can generate a correct SSDT specific to your CPU. 
+2. For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simply overwrite "SSDT-CPUPM.aml" file with an appropriate one. If you have a different CPU from mine, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file (check out bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), an excellent resource for Z820 hacking). If you have a mismatched CPU (sometimes SSDT generated from another board won't work), you might experience booting issue (such as "Memory Error"). In this case, simply disable SSDT-CPUPM.aml from config.plist. macOs will run just fine, without full CPU power management. Once up running, you can generate a correct SSDT specific to your CPU. 
 
 **My systems:**
 
@@ -23,7 +23,7 @@ Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional. You
 - bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)). Also many of the follow-up posts in the same forum. My build wouldn't possible without these guy's work.
 - Dortania's OpenCore Install Guide ([Here](https://dortania.github.io/OpenCore-Install-Guide/))
 
-**What I did differently (not claiming to be the 1st):**
+**What I did differently:**
 
 - Hot-patching of the IRQs conflicts: TMR(0), PIC(2), RTC0(8). 
 - This patch is necessary for on-board audio to work with AppleALC. With this hot fix, all key patches can be done with SSDTs, resulting in a more flexable OC loader. 
@@ -58,7 +58,7 @@ Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional. You
 	- AstekFusion2Family.kext			- Z820 SAS controller
 	- AstekFusion2Adapter.kext			- Z820 SAS controller
 	- AppleIntelE1000e.kext				- Intel LANs (supports two ports)
-	- mXHCD.kext						- Old USB3 driver, works for TI-chip with Catalina (mostly), not with Big Sur.
+	- mXHCD.kext					- Old USB3 driver, works for TI-chip with Catalina (mostly), not with Big Sur.
 	- USBInjectAll.kext
 	- VoodooTSCSync.kext
 	- AppleALC.kext
