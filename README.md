@@ -2,9 +2,9 @@
 
 This is my OC 0.7.1 setup for HP Z420/620/820 workstations. It supports all three HP models. Tested for latest Catalina and Big Sur.
 
-Catalina 10.15.7 - Everthing works, except Sleep mode and some minor issue with USB3. On-board audio with AppleALC, full CPU Power Management. USB3 at full speed for attached storage device. Other USB3 attaching perepherals, however, is a hit-and-miss.
+Catalina 10.15.7 - Everthing works, except Sleep mode and some minor issue with USB3. On-board audio with AppleALC, full CPU Power Management. USB3 at full speed for attached storage device. Other USB3 attaching perepherals, however, is a hit-or-miss (leaving device connected during booting may help).
 
-Big Sur 11.5.1 - Similar to Catalina, but USB3 is practically non-funcional. You would need to add a compatible USB3 card.
+Big Sur 11.5.1 - Similar to Catalina, but USB3 ports is practically non-funcional (adding a compatible USB3 card would be a solution). Also, CPU Power Management is broken since 11.3+. Thus, you would need to disable SSDT_CPUPM.aml, until new pacthes are available.
 
 **Post-install:** 
 
