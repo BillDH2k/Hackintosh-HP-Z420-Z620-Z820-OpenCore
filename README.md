@@ -2,9 +2,9 @@
 
 This is my OC 0.7.1 setup for HP Z420/620/820 workstations. It supports all three HP models. Tested for latest Catalina and Big Sur.
 
-Catalina 10.15.7 - Everthing works, except Sleep mode and some minor issue with USB3. On-board audio with AppleALC, full CPU Power Management. USB3 at full speed for attached storage device. Other USB3 attaching perepherals, however, is a hit-or-miss (leaving device connected during booting may help).
+**Catalina 10.15.7** - Everthing works, except Sleep mode and some minor issue with USB3. On-board audio with AppleALC, full CPU Power Management. USB3 at full speed for attached storage device. Other USB3 attaching perepherals, however, is a hit-or-miss (leaving device connected during booting may help).
 
-Big Sur 11.5.2 - Similar to Catalina, but USB3 ports is practically non-funcional (adding a compatible USB3 card would be a solution). Also, CPU Power Management is broken with DUAL CPU configurations. Single CPU still working. Thus, for Dual CPUs setup, you would need to disable SSDT_CPUPM.aml, until new pacthes are available.
+**Big Sur 11.5.2 (Updated 9/2/2021)**- Similar to Catalina, but USB3 ports is practically non-funcional (adding a compatible USB3 card would be a solution). Also, CPU Power Management is broken with Sandy-Bridge DUAL CPU configurations (i.e. V1 version of Xeons). Single CPU still appear to be working. So, for Sandy-Bridge DUAL CPUs, you will need to disable loading SSDT_CPUPM.aml, until new pacthes are available. There is no issue, however,for Ivy-Bridge CPUs (V2 version of Xeons). In fact, my testing showed no patching is needed for Apple CPU Power Management (#6 & #7 below). Leaving the two patches in config.plist does not appear to do anything for V2 Xeons. So you could remove them, or leave in there if you want dual booting Catalina.
 
 **Post-install:** 
 
