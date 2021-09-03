@@ -8,7 +8,7 @@ This is my OC 0.7.1 setup for HP Z420/620/820 workstations. It supports all thre
 
 **Post-install:** 
 
-1. Update the Serial #. The one in this EFI folder is anonymous #, for install only. DO NOT USE it with your Apple ID!
+1. Update the Serial # & Board Info. The one in this EFI folder is anonymous #, for install only. **DO NOT USE IT with your Apple ID!**
 2. For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simply overwrite "SSDT-CPUPM.aml" file with an appropriate one. If you have a different CPU from mine, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file (bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)), an excellent resource for Z820 hacking). If you have a mismatched CPU (sometimes SSDT generated from another system won't work), you might experience booting issue (such as "Memory Error" KP). In this case, simply disable SSDT-CPUPM.aml from config.plist. macOs will run just fine, without CPU power management. Once up running, you can generate a correct SSDT specific for your CPU. 
 
 **My systems:**
