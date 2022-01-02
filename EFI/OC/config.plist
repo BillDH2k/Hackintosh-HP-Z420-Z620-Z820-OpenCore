@@ -56,14 +56,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-USB2.aml</string>
-				<key>Path</key>
-				<string>SSDT-USB2.aml</string>
-				<key>Enabled</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>SSDT-OTHERS.aml</string>
 				<key>Path</key>
 				<string>SSDT-OTHERS.aml</string>
