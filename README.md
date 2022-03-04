@@ -1,4 +1,17 @@
-# Hackintosh-HP-Z420-Z620-Z820-OpenCore (0.7.1)
+# Release 2.0 - Hackintosh-HP-Z420-Z620-Z820-OpenCore (0.7.8)
+(3/4/2022)
+
+For Z420/620/820 systems with Ivy-Bridge CPUs (V2 Xeons on motherboards with BIOS Boot Block date 2013), Big Sur and Monterey supported. Systems with V1 Xeons (BIOS Boot Block date 2011) should stay at 0.7.1. unless OC booting issues can be resolved (read below)
+
+Finally took the effort to upgrade the OC to 0.7.8. Due to Secure Boot feature added, I was unable to boot up OC 0.7.2 and higher, for systems with Sandy-Bridge CPUs (i.e. V1 32nm Xeons, BIOS Boot Block date 2011). Either the Picker does not show up , or no macOS partitions show up. There is no issue, however, with systems that running Ivy-Bridge CPUs (V2 22nm Xeons, BIOS Boot Block date 2013).
+
+**Monterey 12.2.1** - Can be upraded from Big Sur (tested on 11.6) or fresh installs. Same functionality as the Big Sur. Apart from upgrading to latest OC and kext's, I had to disable VoodooTSCSync.text since it causes kernal panic during booting (same result with CpuTSCSync.kext). I did not notice any performance hit without TSCSync (Geekbench 5 showed the same scores as the Big Sur with TSCSync). If you are upgrading to Monterey from Big Sur, make sure you disable VoodooTSCSync before rebooting.
+
+**Big Sur 11.6** - Everything works, except Sleep mode and the on-board USB3 port (TI-chip not supported).
+
+
+# Release 1.0 - Hackintosh-HP-Z420-Z620-Z820-OpenCore (0.7.1)
+(8/24/2021)
 
 This is my OC 0.7.1 setup for HP Z420/620/820 workstations. It supports all three HP models. Tested for latest Catalina and Big Sur.
 
