@@ -49,7 +49,7 @@
 			<key>IOPropertyMatch</key>
 			<dict>
 				<key>IOCPUNumber</key>
-				<integer>31</integer>
+				<integer>15</integer>
 			</dict>
 			<key>IOProviderClass</key>
 			<string>AppleACPICPU</string>
