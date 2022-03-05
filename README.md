@@ -9,6 +9,7 @@ Finally took the effort to upgrade the OC to 0.7.8. Due to Secure Boot feature a
 
 **Big Sur 11.6** - Everything works, except Sleep mode and the on-board USB3 port (TI-chip not supported).
 
+**Catalina 11.5.7** - Use my release 1.0 file (below) with OC 0.7.1.
 
 # Release 1.0 - Hackintosh-HP-Z420-Z620-Z820-OpenCore (0.7.1)
 (8/24/2021)
