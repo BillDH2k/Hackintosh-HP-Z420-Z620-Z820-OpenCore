@@ -1,4 +1,6 @@
 # Release 2.0 - Hackintosh-HP-Z420-Z620-Z820-OpenCore (0.7.8)
+(3/25/2022) Added boot-chime (boot sound). Updated USBInjectAll.kext to support MacPro7,1 SYMBIOS (fixed USB disappearing issue). Removed TSC kext sinc e it is no longer needed for this platform.
+
 (3/4/2022)
 
 For Z420/620/820 systems with Ivy-Bridge CPUs (V2 Xeons on motherboards with BIOS Boot Block date 2013), Big Sur and Monterey supported. Systems with V1 Xeons (BIOS Boot Block date 2011) should stay at 0.7.1. unless OC booting issues can be resolved (read below)
