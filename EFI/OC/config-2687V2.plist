@@ -8,6 +8,30 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>Custom patch CpuDef for 2687w V2 Xeon</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-1-2687V2-CpuDef.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Custom patch CpuDef for 2667V2 Xeon</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-1-2667V2-CpuDef.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Custom patch CpuDef for 2643V2 Xeon</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-1-2643V2-CpuDef.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Read the comment in dsl sample</string>
 				<key>Enabled</key>
 				<true/>
@@ -76,7 +100,7 @@
 				<key>Path</key>
 				<string>SSDT-CPUPM.aml</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -91,14 +115,6 @@
 				<string>SSDT-2650V2.aml</string>
 				<key>Path</key>
 				<string>SSDT-2650V2.aml</string>
-				<key>Enabled</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-1x2650V2.aml</string>
-				<key>Path</key>
-				<string>SSDT-1x2650V2.aml</string>
 				<key>Enabled</key>
 				<false/>
 			</dict>
@@ -112,11 +128,35 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-2680.aml</string>
+				<string>SSDT-2680.aml (2680 V1)</string>
 				<key>Path</key>
 				<string>SSDT-2680.aml</string>
 				<key>Enabled</key>
 				<false/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>CPUPM for 2667V2 CPU</string>
+				<key>Path</key>
+				<string>SSDT-2667V2.aml</string>
+				<key>Enabled</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>CPUPM for 2643V2 CPU</string>
+				<key>Path</key>
+				<string>SSDT-2643V2.aml</string>
+				<key>Enabled</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>CPUPM for 2687w V2 CPU</string>
+				<key>Path</key>
+				<string>SSDT-2687V2.aml</string>
+				<key>Enabled</key>
+				<true/>
 			</dict>
 		</array>
 		<key>Delete</key>
@@ -125,11 +165,25 @@
 				<key>All</key>
 				<false/>
 				<key>Comment</key>
-				<string>Delete CpuPm</string>
+				<string>Drop Oem CpuPm (if custom patched version is required)</string>
 				<key>Enabled</key>
 				<false/>
 				<key>OemTableId</key>
 				<data>Q3B1UG0AAAA=</data>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>U1NEVA==</data>
+			</dict>
+			<dict>
+				<key>All</key>
+				<false/>
+				<key>Comment</key>
+				<string>Drop CpuDef (Use custom patch, for 2643/2667/2687 V2's)</string>
+				<key>Enabled</key>
+				<true/>
+				<key>OemTableId</key>
+				<data>Q3B1RGVmAAA=</data>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
@@ -144,20 +198,6 @@
 				<false/>
 				<key>OemTableId</key>
 				<data>Q3B1MElzdAA=</data>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>U1NEVA==</data>
-			</dict>
-			<dict>
-				<key>All</key>
-				<false/>
-				<key>Comment</key>
-				<string>Delete CpuDef</string>
-				<key>Enabled</key>
-				<false/>
-				<key>OemTableId</key>
-				<data>Q3B1RGVmAAA=</data>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
