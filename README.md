@@ -1,3 +1,19 @@
+# Release 2.1.1 - Hackintosh-HP-Z420-Z620-Z820-OpenCore (0.7.8)
+(4/19/2022) V2.1.1
+
+**1. Added support for three more CPUs models: 2643 V2, 2667 V2, 2687w V2**. These CPUs require special patched CpuDef table, by removing unused/out-of-order CPU definitions that cause Kernal panic during booting (KP: # of threads, but (#+1) registered from MADT ...). I have finally figured out how to properly patch them, used in conjunction with enabling "Drop Oem CpuDef".
+
+If you have one of these CPUs, use one of the provided config_xxx.plist files and rename it as config.plist.
+
+**2. Updated all CPUPM files**: with full dual CPU supports.
+
+**Pre/Post-install**:
+
+Pre-Install: You must add your own Serial # & Board Info. I have removed the anonymous # for safety reason.
+
+Post-Install: For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simply overwrite "SSDT-CPUPM.aml" file with an appropriate one. If you have a different CPU from mine, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file. If you have a mismatched CPU, you might experience booting issue (such as "Memory Error" KP). In this case, simply disable SSDT-CPUPM.aml from config.plist. macOs will run without CPU power management. Once up running, you can generate a correct SSDT specific for your CPU. For 2643V2/2667V2/2687w V2 CPUs, however, you need to use one of my pre-made config.plist. Without proper patched CpuDef, macOS won't boot.
+
+
 # Release 2.1 - Hackintosh-HP-Z420-Z620-Z820-OpenCore (0.7.8)
 (3/25/2022) V2.1
 
@@ -14,6 +30,8 @@ Finally took the effort to upgrade the OC to 0.7.8. Due to Secure Boot feature a
 **Big Sur 11.6** - Everything works, except Sleep mode and the on-board USB3 port (TI-chip not supported).
 
 **Catalina 11.5.7** - Use my release 1.0 file (below) with OC 0.7.1.
+
+
 
 # Release 1.0 - Hackintosh-HP-Z420-Z620-Z820-OpenCore (0.7.1)
 (8/24/2021)

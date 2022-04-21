@@ -8,6 +8,30 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>Custom patch CpuDef for 2643V2 Xeon</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-1-2643V2-CpuDef.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Custom patch CpuDef for 2667V2 Xeon</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-1-2667V2-CpuDef.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Custom patch CpuDef for 2687w V2 Xeon</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-1-2687V2-CpuDef.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Read the comment in dsl sample</string>
 				<key>Enabled</key>
 				<true/>
@@ -76,7 +100,7 @@
 				<key>Path</key>
 				<string>SSDT-CPUPM.aml</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -91,14 +115,6 @@
 				<string>SSDT-2650V2.aml</string>
 				<key>Path</key>
 				<string>SSDT-2650V2.aml</string>
-				<key>Enabled</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-1x2650V2.aml</string>
-				<key>Path</key>
-				<string>SSDT-1x2650V2.aml</string>
 				<key>Enabled</key>
 				<false/>
 			</dict>
@@ -112,9 +128,33 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-2680.aml</string>
+				<string>SSDT-2680.aml (2680 V1)</string>
 				<key>Path</key>
 				<string>SSDT-2680.aml</string>
+				<key>Enabled</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>CPUPM for 2667V2 CPU</string>
+				<key>Path</key>
+				<string>SSDT-2667V2.aml</string>
+				<key>Enabled</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>CPUPM for 2643V2 CPU</string>
+				<key>Path</key>
+				<string>SSDT-2643V2.aml</string>
+				<key>Enabled</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>CPUPM for 2687w V2 CPU</string>
+				<key>Path</key>
+				<string>SSDT-2687V2.aml</string>
 				<key>Enabled</key>
 				<false/>
 			</dict>
@@ -125,11 +165,25 @@
 				<key>All</key>
 				<false/>
 				<key>Comment</key>
-				<string>Delete CpuPm</string>
+				<string>Drop Oem CpuPm (if custom patched version is required)</string>
 				<key>Enabled</key>
 				<false/>
 				<key>OemTableId</key>
 				<data>Q3B1UG0AAAA=</data>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>U1NEVA==</data>
+			</dict>
+			<dict>
+				<key>All</key>
+				<false/>
+				<key>Comment</key>
+				<string>Drop CpuDef (Use custom patch, for 2643/2667/2687 V2's)</string>
+				<key>Enabled</key>
+				<true/>
+				<key>OemTableId</key>
+				<data>Q3B1RGVmAAA=</data>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
@@ -144,20 +198,6 @@
 				<false/>
 				<key>OemTableId</key>
 				<data>Q3B1MElzdAA=</data>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>U1NEVA==</data>
-			</dict>
-			<dict>
-				<key>All</key>
-				<false/>
-				<key>Comment</key>
-				<string>Delete CpuDef</string>
-				<key>Enabled</key>
-				<false/>
-				<key>OemTableId</key>
-				<data>Q3B1RGVmAAA=</data>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
@@ -187,6 +227,36 @@
 				<data></data>
 				<key>Replace</key>
 				<data>KlhDUlM=</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data></data>
+			</dict>
+			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Comment</key>
+				<string>Replace one byte sequence with another</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>ESIzRA==</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data></data>
+				<key>Replace</key>
+				<data>RDMiEQ==</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -560,9 +630,9 @@
 				<key>BundlePath</key>
 				<string>IntelMausi.kext</string>
 				<key>Comment</key>
-				<string>Intel Ethernet LAN (Single LAN Port support only)</string>
+				<string>Intel Ethernet LAN</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/IntelMausi</string>
 				<key>MaxKernel</key>
@@ -578,15 +648,33 @@
 				<key>BundlePath</key>
 				<string>AppleIntelE1000e.kext</string>
 				<key>Comment</key>
-				<string>Intel Ethernet DUAL LAN (Not recommended for Z420. May cause issue for NVMe boot)</string>
+				<string>Intel Ethernet DUAL LAN</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AppleIntelE1000e</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
 				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>BundlePath</key>
+				<string>Legacy_USB3.kext</string>
+				<key>Comment</key>
+				<string>XHC ports configuration</string>
+				<key>Enabled</key>
+				<false/>
+				<key>ExecutablePath</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string>15.0.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -668,7 +756,7 @@
 				<key>BundlePath</key>
 				<string>VoodooTSCSync.kext</string>
 				<key>Comment</key>
-				<string>VoodooTSCSync.kext   (For Catalina)</string>
+				<string></string>
 				<key>Enabled</key>
 				<false/>
 				<key>ExecutablePath</key>
