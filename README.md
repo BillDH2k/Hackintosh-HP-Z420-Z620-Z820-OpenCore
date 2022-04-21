@@ -7,6 +7,8 @@ If you have one of these CPUs, use one of the provided config_xxx.plist files an
 
 **2. Updated all CPUPM files**: with full dual CPU supports.
 
+**3. LAN driver default to IntelMausi.kext**. Dual port driver (AppleIntelE1000e.kext) may cause NVME booting issue in some configuration.
+
 **Pre/Post-install**:
 
 Pre-Install: You must add your own Serial # & Board Info. I have removed the anonymous # for safety reason.
