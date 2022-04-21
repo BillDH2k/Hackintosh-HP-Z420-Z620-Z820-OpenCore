@@ -2,6 +2,7 @@
 (4/19/2022) V2.2
 
 **1. Added support for three more CPUs models: 2643 V2, 2667 V2, 2687w V2**. 
+
 These CPUs require special patched CpuDef table, by removing unused/out-of-order CPU definitions that cause Kernal panic during booting (KP: # of threads, but (#+1) registered from MADT ...). I have finally figured out how to properly patch them, used in conjunction with enabling "Drop Oem CpuDef". If you have one of these CPUs, use one of the provided config_xxx.plist files and rename it as config.plist.
 
 **2. Updated all CPUPM files**: with full dual CPU supports.
