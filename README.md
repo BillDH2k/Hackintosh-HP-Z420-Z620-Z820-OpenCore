@@ -7,7 +7,7 @@ These CPUs require special patched CpuDef table, by removing unused/out-of-order
 
 **2. Updated all CPUPM files**: with full dual CPU supports. Also defaulted LAN driver to IntelMausi.kext. Dual port driver (AppleIntelE1000e.kext) may cause NVME booting issue in some configuration.
 
-**3. Updated 1.0 Release (OC 0.7.1) to include the new CPU supports**. Available for download at Release 1.0, under the Asset tag.
+**3. Updated 1.0 Release (OC 0.7.1) to include the new CPU supports**. Available for download at the Release 1.0, under the Asset tag.
 
 **Pre/Post-install**:
 
