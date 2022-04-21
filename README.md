@@ -1,13 +1,13 @@
 # Release 2.2 - Hackintosh-HP-Z420-Z620-Z820-OpenCore (0.7.8)
-(4/19/2022) V2.2
+(4/19/2022) V2.2 for OC 0.7.8 
 
 **1. Added support for three more CPUs models: 2643 V2, 2667 V2, 2687w V2**. 
 
 These CPUs require special patched CpuDef table, by removing unused/out-of-order CPU definitions that cause Kernal panic during booting (KP: # of threads, but (#+1) registered from MADT ...). I have finally figured out how to properly patch them, used in conjunction with enabling "Drop Oem CpuDef". If you have one of these CPUs, use one of the provided config_xxx.plist files and rename it as config.plist.
 
-**2. Updated all CPUPM files**: with full dual CPU supports.
+**2. Updated all CPUPM files**: with full dual CPU supports. Also defaulted LAN driver to IntelMausi.kext. Dual port driver (AppleIntelE1000e.kext) may cause NVME booting issue in some configuration.
 
-**3. LAN driver default to IntelMausi.kext**. Dual port driver (AppleIntelE1000e.kext) may cause NVME booting issue in some configuration.
+**3. Updated 1.0 Release (OC 0.7.1) to include the new CPU supports**. Available for download at Release 1.0.
 
 **Pre/Post-install**:
 
