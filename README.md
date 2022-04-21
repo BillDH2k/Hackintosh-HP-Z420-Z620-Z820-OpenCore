@@ -17,7 +17,7 @@ Please read the "Pre/Post-Install" instruction on the release note 1.0  below.
 # Release 2.1 - Hackintosh-HP-Z420-Z620-Z820-OpenCore (0.7.8)
 (3/25/2022) V2.1
 
-Added boot-chime (boot sound). Updated USBInjectAll.kext to support MacPro7,1 SYMBIOS (fixed USB ports disappearing issue), but MacPro6,1 still appears to be the optimal SYMBIOS for this platform (better CPU Power management). Removed TSC kext since it is no longer needed for this platform.
+Added boot-chime (boot sound). Updated USBInjectAll.kext to support MacPro7,1 SYMBIOS (fixed USB ports disappearing issue), but MacPro6,1 still appears to be the optimal SYMBIOS for this platform (better CPU Power management?). Removed TSC kext since it is no longer needed for this platform.
 
 (3/4/2022) V2.0
 
