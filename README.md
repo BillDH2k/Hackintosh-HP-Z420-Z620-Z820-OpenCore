@@ -2,7 +2,7 @@
 # Update to Release 1.0 - Added more CPU support (0.7.1)
 (4/20/2022)
 
-Added support for CPUs 2643 V2, 2667 V2, and 2687w V2, to OC 071 EFI (Release 1.0)**. 
+Added support for CPUs 2643 V2, 2667 V2, and 2687w V2, to OC 071 EFI (Release 1.0). 
 
 These CPUs require special patched CpuDef table to prevent the kernal panic during booting (KP: # of threads, but (#+1) registered from MADT ...). I have finally figured out how to properly patch them, used in conjunction with enabling "Drop Oem CpuDef". If you have one of these CPUs, use one of the provided config_xxx.plist files and rename it to config.plst.
 
