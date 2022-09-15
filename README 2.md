@@ -8,13 +8,13 @@
 
 OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/820). Support macOS Catalina (10.15.7) to  Monterey (12.6 tested). 
 
-**Supported Hardware**:
+#Supported Hardware
 
 - HP Z420/Z620/Z820 (BIOS 3.96)
 - CPUs: E5-1600/2600 V1 Xeon's (Sandy-Bridge) or V2 Xeon's (Ivy-Bridge)
 - Required BIOS Settings: Enable UEFI boot, set SATA to AHCI mode, Disable Vt-d, and enable "Legacy ACPI Tables".
 
-**EFI folders (two versions)**:
+#EFI Folders (Two Versions):
 
 - **EFI with OC (0.8.4)**
 	- Support Big Sur and Monterey. Fresh install or update.
@@ -22,14 +22,14 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/
 - **EFI with OC 0.7.1**:
 	- Mainly for supporting legacy Catalina OS
 	- Support Catalina/Big Sur (fresh install/update), and Monterey (boot to existing install only).
-	- Fresh install/update to Monterey must use the newer EFI (above). Once Monterey is intalled, you may switch back to 0.7.1 EFI (if you need to dual boot Catalina).
+	- Fresh install/update to Monterey must use the newer EFI (above). Once Monterey is intalled, you may switch back to 0.7.1 EFI (for dual booting Catalina).
 	- Other limitation: Catalina update only works to Big Sur, and jump to Monterey directly would fail (limitation of 0.7.1). But once in Big Sur, you may update to Monterey by using the newer EFI.
 
 - **Choose the right config.plist**
-	- For Sandy-bridge CPUs (V1 Xeon's), use config__SandyCPUs.plist (rename it to config.plist)
-	- For Ivy-bridge CPUs (V2 Xeon's), use config__IvyCPUs.plist 
+	- For Sandy-bridge CPUs (V1 Xeon's), use config_SandyCPUs.plist (rename it to config.plist)
+	- For Ivy-bridge CPUs (V2 Xeon's), use config_IvyCPUs.plist 
 
-**What works for the key features**:
+#What works and not work:
 
 - CPU Power Power Management (all processor models)
 - Built-in Audio via AppleALC (Front/Back ports, internal speaker)
