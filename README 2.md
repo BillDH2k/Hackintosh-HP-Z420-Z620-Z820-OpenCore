@@ -8,13 +8,13 @@
 
 OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/820). Support macOS Catalina (10.15.7) to  Monterey (12.6 tested). 
 
-#Supported Hardware
+# Supported Hardware
 
 - HP Z420/Z620/Z820 (BIOS 3.96)
 - CPUs: E5-1600/2600 V1 Xeon's (Sandy-Bridge) or V2 Xeon's (Ivy-Bridge)
 - Required BIOS Settings: Enable UEFI boot, set SATA to AHCI mode, Disable Vt-d, and enable "Legacy ACPI Tables".
 
-#EFI Folders (Two Versions):
+# EFI Folders (Two Versions):
 
 - **EFI with OC (0.8.4)**
 	- Support Big Sur and Monterey. Fresh install or update.
@@ -29,7 +29,7 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/
 	- For Sandy-bridge CPUs (V1 Xeon's), use config_SandyCPUs.plist (rename it to config.plist)
 	- For Ivy-bridge CPUs (V2 Xeon's), use config_IvyCPUs.plist 
 
-#What works and not work:
+# What works and not work:
 
 - CPU Power Power Management (all processor models)
 - Built-in Audio via AppleALC (Front/Back ports, internal speaker)
