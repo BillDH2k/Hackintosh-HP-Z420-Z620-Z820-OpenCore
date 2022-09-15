@@ -17,6 +17,8 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/
 - CPUs: E5-1600/2600 V1 Xeon's (Sandy-Bridge) or V2 Xeon's (Ivy-Bridge)
 - Required BIOS Settings: Enable UEFI boot, set SATA to AHCI mode, Disable Vt-d, and enable "Legacy ACPI Tables".
 
+# 
+
 **EFI Folders (Two Versions):**
 
 - **EFI with OC (0.8.4)**
