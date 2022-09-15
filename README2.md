@@ -37,15 +37,13 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/
 
 # 
 
-**What works/Not work:**
-
-- **Works**:
+- **What Works**:
 	- CPU Power Power Management (all processor models)
 	- Built-in Audio via AppleALC (Front/Back ports, internal speaker)
 	- USB2 ports, Ethernet, On-Board SAS (Z820 only)
 	- USB3 (Catalina only)
 
-- **Not work**:
+- **What Not Work**:
 	- Sleep/Wake (Must disable from macOS, System Preference->Energy Saver->Prevent computer from sleeping)
 	- USB3 ports not working under Big Sur or higher (no driver support for the TI chip)
 
