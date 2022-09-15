@@ -44,7 +44,7 @@ For system running V1 Xeon's, use config_SandyCPUs.plist and rename it to conifg
 
 # ------------ Release History ----------
 
-# Release 3.0 - Updated OC to 0.8.4, with CPU Power managment for V1 Xeon's 
+# Release 3.0 - Updated OC to 0.8.4, and added CPU Power managment for V1 Xeon's 
 (9/15/2022)
 
 **Added support to enable full CPU Power Management for systems running Sandy-Bridge V1 Xeon CPUs**. 
