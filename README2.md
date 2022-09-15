@@ -2,6 +2,7 @@
 (In coming ...)
 
 **(9/15/2022) Release 3.0 - Added support for Sandy-Bridge CPUs (V1 Xeons) with full CPU Power management**
+
 Read details under the Release History section below.**
 
 
