@@ -5,19 +5,23 @@
 
 Read details under the Release History section below.**
 
-# 
+#
 
-# About this EFI
+**About this EFI**
 
 OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/820). Support macOS Catalina (10.15.7) to  Monterey (12.6 tested). 
 
-# Supported Hardware
+# 
+
+**Supported Hardware**
 
 - HP Z420/Z620/Z820 (BIOS 3.96)
 - CPUs: E5-1600/2600 V1 Xeon's (Sandy-Bridge) or V2 Xeon's (Ivy-Bridge)
 - Required BIOS Settings: Enable UEFI boot, set SATA to AHCI mode, Disable Vt-d, and enable "Legacy ACPI Tables".
 
-# EFI Folders (Two Versions):
+# 
+
+**EFI Folders (Two Versions):**
 
 - **EFI with OC (0.8.4)**
 	- Support Big Sur and Monterey. Fresh install or update.
@@ -33,7 +37,9 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/
 	- For Sandy-bridge CPUs (V1 Xeon's), **use config_SandyCPUs.plist** (rename it to config.plist)
 	- For Ivy-bridge CPUs (V2 Xeon's), **use config_IvyCPUs.plist** 
 
-# What works/Not work:
+# 
+
+**What works/Not work:**
 
 - **Works**:
 	- CPU Power Power Management (all processor models)
@@ -45,7 +51,9 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/
 	- Sleep/Wake (Must disable from macOS, System Preference->Energy Saver->Prevent computer from sleeping)
 	- USB3 ports not working under Big Sur or higher (no driver support for the TI chip)
 
-# Pre/Post-Install:
+# 
+
+**Pre/Post-Install:**
 
 - You must generate and add your own Serial # & Board ID to config.plist
 
