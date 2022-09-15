@@ -1,5 +1,5 @@
 # OpenCore EFI for HP Z420-Z620-Z820 (0.8.4/0.7.1)
-(Coming ...)
+(In coming ...)
 
 Support all three HP models with either V1 Xeons (Sandy-Bridge) or V2 Xeons (Ivy-Bridge). macOS support from Catalina (10.15.7) to  Monterey (12.6 tested). Two versions of EFI are provided: one with recent OC (0.8.4) for Big Sur/Monterey and one with OC 0.7.1 for Catalina/Big Sur/Monterey (read below for limitation).
 
@@ -25,14 +25,14 @@ For system running V1 Xeon's, use config_SandyCPUs.plist and rename it to conifg
 
 **What works**:
 
-- CPU Power Power Management (all processor models, including Sandy-Bridge CPUs)
+- CPU Power Power Management (all processor models)
 - Built-in Audio via AppleALC (Front/Back ports, internal speaker)
 - USB2 ports, Ethernet, On-Board SAS (Z820 only)
-- USB3 (Catalina only. )
+- USB3 (Catalina only)
 
 **Not work**:
 
-- Sleep/Wake (Must disable from macOS->System Preference->Energy Saver->Prevent compuer from sleeping)
+- Sleep/Wake (Must disable from macOS, System Preference->Energy Saver->Prevent computer from sleeping)
 - USB3 ports not working on Big Sur or higher (no driver support for TI chip)
 
 **Pre/Post-Install**:
@@ -44,7 +44,7 @@ For system running V1 Xeon's, use config_SandyCPUs.plist and rename it to conifg
 
 # ------------ Release History ----------
 
-# Release 3.0 - Updated OC to 0.8.4
+# Release 3.0 - Updated OC to 0.8.4, with CPU Power managment for V1 Xeon's 
 (9/15/2022)
 
 **Added support to enable full CPU Power Management for systems running Sandy-Bridge V1 Xeon CPUs**. 
