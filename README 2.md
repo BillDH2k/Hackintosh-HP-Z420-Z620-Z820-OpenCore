@@ -49,7 +49,7 @@ For system running V1 Xeon's, use config_SandyCPUs.plist and rename it to conifg
 
 **Added support to enable full CPU Power Management for systems running Sandy-Bridge V1 Xeon CPUs**. 
 
-Newer kernel patches were available to enable full CPU Power Management for Sandy-Bridge CPUs (Credit to the link here). Now, the earlier  version of the HP systems (Bios Boot Block Date 2011) running V1 Xeon's can enjoy latest OS (Big Sur - Monterey), like their counter parts with V2 Xeon's, with full CPU Power management.
+Newer kernel patches were available to enable full CPU Power Management for Sandy-Bridge CPUs (Credit to the link [here](https://www.insanelymac.com/forum/topic/346988-sandy-bridge-e-power-management-big-sur-1121-big-sur-114/)). Now, the earlier  version of the HP systems (Bios Boot Block Date 2011) running V1 Xeon's can enjoy latest OS (Big Sur - Monterey), like their counter parts with V2 Xeon's, with full CPU Power management.
 
 I have upgraded the EFI folder (to OC 0.8.4) as well as the V1.0 release (OC 0.7.1) by incorporating the new kernel patches. Two sets of config.plist were made: one for running Ivy-Bridge CPUs (configIvyCPUs.plist) and one for Sandy-Bridge CPUs (config_SandyCPUs.plist).
 
