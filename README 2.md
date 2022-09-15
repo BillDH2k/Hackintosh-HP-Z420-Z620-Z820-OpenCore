@@ -3,28 +3,26 @@
 
 Support all three HP models with either V1 Xeons (Sandy-Bridge) or V2 Xeons (Ivy-Bridge). macOS support from Catalina (10.15.7) to  Monterey (12.6 tested). Two versions of EFI are provided: one with recent OC (0.8.4) for Big Sur/Monterey and one with OC 0.7.1 for Catalina/Big Sur/Monterey (read below for limitation).
 
-**Supported hardware**:
+**Supported Hardware**:
 
 - HP Z420/Z620/Z820 (BIOS 3.96), with either 2011 or 2013 Boot Block Date
 - E5-1600/2600 V1 Xeon's (Sandy-Bridge) or V2 Xeon's (Ivy-Bridge)
-
-- Required BIOS Settings:
-	Enable UEFI boot, set SATA to AHCI mode, Disable Vt-d, and enable "Legacy ACPI Tables".
+- Required BIOS Settings: Enable UEFI boot, set SATA to AHCI mode, Disable Vt-d, and enable "Legacy ACPI Tables".
 
 **EFI folders (two versions)**:
 
-- **EFI with recent OC (0.8.4)**
+- **EFI with OC (0.8.4)**
 	- Support Big Sur and Monterey. Fresh install or upgrade.
 
 - **EFI with OC 0.7.1**:
-	- Support Catalina/Big Sur. Fresh install, or upgrade (up to latest Big Sur only).
-	- Monterey support is limited to booting to an existing install only. Fresh install, or upgrade (poosible from Big Sur+ only) must switch to the newer EFI (above). Once Monterey is intalled, you may switch back to 0.7.1 EFI (if you need to dual boot Catalina).
+	- Support Catalina/Big Sur. Fresh install, or upgrade (up to Big Sur).
+	- Monterey support is limited to booting to an existing install only. Fresh install/upgrade must use to the newer EFI (above). Once Monterey is intalled, you may switch back to 0.7.1 EFI (if you need to dual boot Catalina).
 	
-- **Install note: choose the correct config.plist from the provided EFI folder**
-	For system running V1 Xeon's, please use **config___SandyCPUs.plist** and rename it to conifg.plist. For system running V2 Xeon's, use and rename **config_IvyCPUs.plist** instead. Sandy-Bridge CPUs require additional kernel patches to enable full CPU power management.
-	
-- **Additional details about the EFI can be found in Release Note 1.0 below**
-	
+**Installation Note: choose the correct config.plist**
+
+For system running V1 Xeon's, use config_SandyCPUs.plist and rename it to conifg.plist. For system running V2 Xeon's, use and rename config_IvyCPUs.plist instead. Sandy-Bridge CPUs require additional kernel patches to enable full CPU power management.
+
+
 **What works**:
 
 - CPU Power Power Management (all processor models, including Sandy-Bridge CPUs)
@@ -53,7 +51,7 @@ Support all three HP models with either V1 Xeons (Sandy-Bridge) or V2 Xeons (Ivy
 
 Newer kernel patches were available to enable full CPU Power Management for Sandy-Bridge CPUs (Credit to the link here). Now, the earlier  version of the HP systems (Bios Boot Block Date 2011) running V1 Xeon's can enjoy latest OS (Big Sur - Monterey), like their counter parts with V2 Xeon's, with full CPU Power management.
 
-I have upgraded the EFI folder (to OC 0.8.4) as well as the V1.0 release (OC 0.7.1) by incorporating the new kernel patches. Two sets of config.plist were made: one for running Ivy-Bridge CPUs (config___IvyCPUs.plist) and one for Sandy-Bridge CPUs (config_SandyCPUs.plist).
+I have upgraded the EFI folder (to OC 0.8.4) as well as the V1.0 release (OC 0.7.1) by incorporating the new kernel patches. Two sets of config.plist were made: one for running Ivy-Bridge CPUs (configIvyCPUs.plist) and one for Sandy-Bridge CPUs (config_SandyCPUs.plist).
 
 OC 0.7.1 EFI is maintained soly for the purpose of supporting Catalina. This EFI fully supports Catalina and Big Sur, but can only boot to an extsting Monterey install. Fresh install or upgrade to Monterey is not possilbe with this EFI. You need to use the newer EFI to accomplish this. Once Monterey is install, you may switch back to OC 0.7.1 EFI.  
 
