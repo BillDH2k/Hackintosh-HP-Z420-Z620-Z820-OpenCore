@@ -1,29 +1,35 @@
 # OpenCore EFI for HP Z420-Z620-Z820 (0.8.4/0.7.1)
 (In coming ...)
 
-Support all three HP models with either V1 Xeons (Sandy-Bridge) or V2 Xeons (Ivy-Bridge). macOS support from Catalina (10.15.7) to  Monterey (12.6 tested). Two versions of EFI are provided: one with recent OC (0.8.4) for Big Sur/Monterey and one with OC 0.7.1 for Catalina/Big Sur/Monterey (read below for limitation).
+**(9/15/2022) Release 3.0 - Added support for Sandy-Bridge CPUs (V1 Xeons) with full CPU Power management. Details under Release History section below.**
+
+
+# About this EFI
+
+OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/820). Support macOS Catalina (10.15.7) to  Monterey (12.6 tested). 
 
 **Supported Hardware**:
 
-- HP Z420/Z620/Z820 (BIOS 3.96), with either 2011 or 2013 Boot Block Date
-- E5-1600/2600 V1 Xeon's (Sandy-Bridge) or V2 Xeon's (Ivy-Bridge)
+- HP Z420/Z620/Z820 (BIOS 3.96)
+- CPUs: E5-1600/2600 V1 Xeon's (Sandy-Bridge) or V2 Xeon's (Ivy-Bridge)
 - Required BIOS Settings: Enable UEFI boot, set SATA to AHCI mode, Disable Vt-d, and enable "Legacy ACPI Tables".
 
 **EFI folders (two versions)**:
 
 - **EFI with OC (0.8.4)**
-	- Support Big Sur and Monterey. Fresh install or upgrade.
+	- Support Big Sur and Monterey. Fresh install or update.
 
 - **EFI with OC 0.7.1**:
-	- Support Catalina/Big Sur. Fresh install, or upgrade (up to Big Sur).
-	- Monterey support is limited to booting to an existing install only. Fresh install/upgrade must use to the newer EFI (above). Once Monterey is intalled, you may switch back to 0.7.1 EFI (if you need to dual boot Catalina).
-	
-**Installation Note: choose the correct config.plist**
+	- Mainly for supporting legacy Catalina OS
+	- Support Catalina/Big Sur (fresh install/update), and Monterey (boot to existing install only).
+	- Fresh install/update to Monterey must use the newer EFI (above). Once Monterey is intalled, you may switch back to 0.7.1 EFI (if you need to dual boot Catalina).
+	- Other limitation: Catalina update only works to Big Sur, and jump to Monterey directly would fail (limitation of 0.7.1). But once in Big Sur, you may update to Monterey by using the newer EFI.
 
-For system running V1 Xeon's, use config_SandyCPUs.plist and rename it to conifg.plist. For system running V2 Xeon's, use and rename config_IvyCPUs.plist instead. Sandy-Bridge CPUs require additional kernel patches to enable full CPU power management.
+- **Choose the right config.plist**
+	- For Sandy-bridge CPUs (V1 Xeon's), use config__SandyCPUs.plist (rename it to config.plist)
+	- For Ivy-bridge CPUs (V2 Xeon's), use config__IvyCPUs.plist 
 
-
-**What works**:
+**What works for the key features**:
 
 - CPU Power Power Management (all processor models)
 - Built-in Audio via AppleALC (Front/Back ports, internal speaker)
@@ -33,13 +39,13 @@ For system running V1 Xeon's, use config_SandyCPUs.plist and rename it to conifg
 **Not work**:
 
 - Sleep/Wake (Must disable from macOS, System Preference->Energy Saver->Prevent computer from sleeping)
-- USB3 ports not working on Big Sur or higher (no driver support for TI chip)
+- USB3 ports not working under Big Sur or higher (no driver support for the TI chip)
 
 **Pre/Post-Install**:
 
 - You must generate and add your own Serial # & Board ID to config.plist
 
-- For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few from my systems. Simply overwrite "SSDT-CPUPM.aml" file with an appropriate one. If you have a different CPU from mine, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file. Additional instruction can be found here: bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/). If you have a mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml from config.plist. macOs will run without CPU power management. Once up running, you can generate a correct SSDT file specific for your CPU. For 2643V2/2667V2/2687w V2 CPUs, however, you need to use one of my pre-made config.plist. Without proper patched CpuDef, macOS won't boot.
+- For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few in the ACPI folder. Simply overwrite "SSDT-CPUPM.aml" with an appropriate file. If you have a different CPU not listed, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file. Additional instruction can be found here: bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/). If you have a mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml from config.plist. macOs will run without CPU power management. Once up running, you can generate a correct SSDT file specific for your CPU. For 2643V2/2667V2/2687w V2 CPUs, however, you need to use one of my pre-made config.plist. Without proper patched CpuDef, macOS won't boot.
 
 
 # ------------ Release History ----------
@@ -175,4 +181,3 @@ Enable UEFI boot, set SATA to AHCI mode, Disable Vt-d, and enable "Legacy ACPI T
 
 
 Goodluck!
-
