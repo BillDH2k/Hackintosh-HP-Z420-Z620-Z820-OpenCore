@@ -17,8 +17,6 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/
 - CPUs: E5-1600/2600 V1 Xeon's (Sandy-Bridge) or V2 Xeon's (Ivy-Bridge)
 - Required BIOS Settings: Enable UEFI boot, set SATA to AHCI mode, Disable Vt-d, and enable "Legacy ACPI Tables".
 
-# 
-
 **EFI Folders (Two Versions):**
 
 - **EFI with OC (0.8.4)**
@@ -31,7 +29,7 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/
 	- Fresh install/update to Monterey must use the newer EFI (above). Once intalled, you may switch back to 0.7.1 EFI (for dual booting Catalina).
 	- Other limitation: Catalina update only works to Big Sur, and jump to Monterey directly would fail (limitation of 0.7.1). But once in Big Sur, you may update to Monterey using the newer EFI.
 
-- **Choose the right config.plist**
+- **Choose the Correct config.plist**
 	- For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist)
 	- For Ivy-bridge CPUs (V2 Xeon's), use **config_IvyCPUs.plist** (rename it to config.list)
 
