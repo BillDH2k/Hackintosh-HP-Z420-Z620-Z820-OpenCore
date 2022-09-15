@@ -3,15 +3,13 @@
 
 **(9/15/2022) Release 3.0 - Added support for Sandy-Bridge CPUs (V1 Xeons) with full CPU Power management**
 
-Read details under the Release History section below.**
+Read the details under the Release History section below.**
 
 #
 
 **About this EFI**
 
 OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/820). Support macOS Catalina (10.15.7) to  Monterey (12.6 tested). 
-
-# 
 
 **Supported Hardware**
 
@@ -34,8 +32,8 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/
 	- Other limitation: Catalina update only works to Big Sur, and jump to Monterey directly would fail (limitation of 0.7.1). But once in Big Sur, you may update to Monterey using the newer EFI.
 
 - **Choose the right config.plist**
-	- For Sandy-bridge CPUs (V1 Xeon's), **use config_SandyCPUs.plist** (rename it to config.plist)
-	- For Ivy-bridge CPUs (V2 Xeon's), **use config_IvyCPUs.plist** 
+	- For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist)
+	- For Ivy-bridge CPUs (V2 Xeon's), use **config_IvyCPUs.plist** (rename it to config.list)
 
 # 
 
