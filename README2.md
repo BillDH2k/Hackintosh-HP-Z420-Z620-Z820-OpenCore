@@ -21,7 +21,7 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 
 **EFI Folders (Two Versions):**
 
-- **EFI with OC (0.8.4)**
+- **EFI with OC 0.8.4**
 	- Support Big Sur and Monterey. Fresh install or update.
 
 - **EFI with OC 0.7.1**:
