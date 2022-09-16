@@ -9,7 +9,7 @@ Read the details under the Release History section below.**
 
 # About this EFI
 
-OpenCore loader (0.8.4 & 0.7.1) for HP workstations (all three models: Z420/620/820). Support macOS Catalina (10.15.7) to  Monterey (12.6 tested). 
+OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/620/820. Support macOS Catalina (10.15.7) to  Monterey (12.6 tested). 
 
 **Supported Hardware**
 
