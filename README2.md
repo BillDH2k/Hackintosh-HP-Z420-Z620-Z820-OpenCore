@@ -39,7 +39,7 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 
 - **What Works**:
 	- CPU Power Power Management (all processor models)
-	- Built-in Audio via AppleALC (Front/Back ports, internal speaker)
+	- On-board Audio via AppleALC (Front/Back Jacks, internal speaker)
 	- USB2 ports, Ethernet, On-Board SAS (Z820 only)
 	- USB3 (Catalina only)
 
