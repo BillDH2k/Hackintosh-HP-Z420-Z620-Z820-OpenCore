@@ -26,10 +26,8 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 
 - **EFI with OC 0.7.1**:
 	- Mainly for supporting Catalina OS
-	- Full support for Catalina/Big Sur (fresh install/update)
-	- Partial support for Monterey (boot to existing install only).
-	- Fresh install/update to Monterey must use the newer EFI (above). Once intalled, you may switch back to 0.7.1 EFI (for dual booting Catalina).
-	- Other limitation: Catalina can update to Big Sur, but not to Monterey (limitation of OC 0.7.1). But once in Big Sur, you may update to Monterey using the newer EFI.
+	- Support for Catalina/Big Sur (fresh install/update), Monterey (boot to existing install only)
+	- Fresh install/update to Monterey must use the newer EFI. Update from Catalina to Monterey must be done by booting up an USB installation stick. 
 
 - **Choose the Correct config.plist**
 	- For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist)
