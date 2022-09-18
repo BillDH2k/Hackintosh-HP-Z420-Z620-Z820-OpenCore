@@ -1,9 +1,8 @@
 # OpenCore EFI for HP Z420-Z620-Z820 (0.8.4/0.7.1)
-(In coming ...)
 
-**(9/15/2022) Release 3.0 - Added support for Sandy-Bridge CPUs (V1 Xeons) with full CPU Power management**
+**(9/15/2022) Release 3.0 - Add new kernel patches to enable full CPU Power Management for Sandy-Bridge CPUs (V1 Xeons)**
 
-Read the details under the Release History section below.**
+Update main EFI to OC 0.8.4. Added new kernel patches to enable full CPU Power Management for Sandy-Bridge Xeon's (V1 verions). Read details under the Release History section below.**
 
 
 

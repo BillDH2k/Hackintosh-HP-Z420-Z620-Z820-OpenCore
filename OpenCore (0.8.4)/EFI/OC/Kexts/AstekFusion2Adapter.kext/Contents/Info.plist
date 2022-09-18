@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BuildMachineOSBuild</key>
+	<string>11G63</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>AstekFusion2Adapter</string>
+	<key>CFBundleGetInfoString</key>
+	<string>2.62 121912a, Copyright (c) 2010-2012, Astek Corporation</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.astekcorp.driver.AstekFusion2Adapter</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>KEXT</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.62</string>
+	<key>CFBundleSignature</key>
+	<string>ASTK</string>
+	<key>CFBundleVersion</key>
+	<string>2.62 121912a</string>
+	<key>DTCompiler</key>
+	<string>com.apple.compilers.llvm.clang.1_0</string>
+	<key>DTPlatformBuild</key>
+	<string>4D502</string>
+	<key>DTPlatformVersion</key>
+	<string>GM</string>
+	<key>DTSDKBuild</key>
+	<string>10K549</string>
+	<key>DTSDKName</key>
+	<string>macosx10.6</string>
+	<key>DTXcode</key>
+	<string>0421</string>
+	<key>DTXcodeBuild</key>
+	<string>4D502</string>
+	<key>IOKitDebug</key>
+	<integer>65535</integer>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>AstekFusion2Adapter</key>
+		<dict>
+			<key>AdapterName</key>
+			<string>AstekFusion2</string>
+			<key>CFBundleIdentifier</key>
+			<string>com.astekcorp.driver.AstekFusion2Adapter</string>
+			<key>Helion_Activation</key>
+			<array>
+				<string>removeme</string>
+			</array>
+			<key>Helion_OEM_Strings</key>
+			<dict>
+				<key> 7L-000012-A</key>
+				<string>Xtore</string>
+				<key>7L-000002-A</key>
+				<string>Astek Corporation</string>
+				<key>7L-000003-A</key>
+				<string>Astek Corporation</string>
+				<key>OWCJ6GHPCI2E</key>
+				<string>Other World Computing</string>
+			</dict>
+			<key>IOClass</key>
+			<string>com_astekcorp_driver_AstekFusion2Adapter</string>
+			<key>IOMaximumSegmentByteCountRead</key>
+			<integer>16777215</integer>
+			<key>IOMaximumSegmentByteCountWrite</key>
+			<integer>16777215</integer>
+			<key>IOMaximumSegmentCountRead</key>
+			<integer>128</integer>
+			<key>IOMaximumSegmentCountWrite</key>
+			<integer>128</integer>
+			<key>IOMediaIcon</key>
+			<dict>
+				<key>CFBundleIdentifier</key>
+				<string>com.apple.iokit.IOSCSIArchitectureModelFamily</string>
+				<key>IOBundleResourceFile</key>
+				<string>Internal.icns</string>
+			</dict>
+			<key>IOPCIPrimaryMatch</key>
+			<string>0x00641000&amp;0xFFFFFFFF 0x00651000&amp;0xFFFFFFFF 0x00701000&amp;0xFFFFFFFF 0x00721000&amp;0xFFFFFFFF 0x007E1000&amp;0xFFFFFFFF 0x00861000&amp;0xFFFFFFFF 0x00871000&amp;0xFFFFFFFF 0x006E1000&amp;0xFFFFFFFF</string>
+			<key>IOPCITunnelCompatible</key>
+			<true/>
+			<key>IOProbeScore</key>
+			<integer>100</integer>
+			<key>IOProviderClass</key>
+			<string>IOPCIDevice</string>
+			<key>IOUnitName</key>
+			<string>disk</string>
+			<key>IOUserClientClass</key>
+			<string>com_astekcorp_driver_AstekFusionUserClient</string>
+			<key>Protocol Characteristics</key>
+			<dict>
+				<key>Physical Interconnect</key>
+				<string>SAS</string>
+				<key>Physical Interconnect Location</key>
+				<string>Internal</string>
+			</dict>
+			<key>Read Time Out Duration</key>
+			<integer>30000</integer>
+			<key>SpinDown</key>
+			<true/>
+			<key>Write Time Out Duration</key>
+			<integer>30000</integer>
+		</dict>
+	</dict>
+	<key>OSBundleEnableKextLogging</key>
+	<true/>
+	<key>OSBundleLibraries</key>
+	<dict>
+		<key>com.apple.iokit.IOPCIFamily</key>
+		<string>1.0b1</string>
+		<key>com.apple.iokit.IOSCSIParallelFamily</key>
+		<string>1.2</string>
+		<key>com.apple.kpi.iokit</key>
+		<string>7.0</string>
+		<key>com.apple.kpi.libkern</key>
+		<string>8.0d0</string>
+		<key>com.apple.kpi.mach</key>
+		<string>10.3</string>
+		<key>com.astekcorp.driver.AstekFusion2Family</key>
+		<string>2.62</string>
+	</dict>
+</dict>
+</plist>
