@@ -2,7 +2,7 @@
 
 **(9/15/2022) Release 3.0 - Add new kernel patches to enable full CPU Power Management for Sandy-Bridge CPUs (V1 Xeons)**
 
-Update main EFI to OC 0.8.4. Added new kernel patches to enable full CPU Power Management for Sandy-Bridge Xeon's (V1 verions). Read details under the Release History section below.
+Updated main EFI to OC 0.8.4. Added new kernel patches to enable full CPU Power Management for Sandy-Bridge Xeon's (V1 verions, on all versions of the motherboards). Details under the Release History section below.
 
 
 
@@ -51,7 +51,8 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 
 - You must generate and add your own Serial # & Board ID to config.plist
 
-- For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few in the ACPI folder. Simply overwrite "SSDT-CPUPM.aml" with an appropriate file. If you have a different CPU not listed, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file. Additional instruction can be found here: bilbo's "Z820 - High Sierra, the Great Guide" ([link](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)). If you have a mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml from config.plist. macOs will run without CPU power management. Once up running, you can generate a correct SSDT file specific for your CPU. For 2643V2/2667V2/2687w V2 CPUs, however, you need to use one of my pre-made config.plist. Without proper patched CpuDef, macOS won't boot.
+- For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few in the ACPI folder. Simply overwrite "SSDT-CPUPM.aml" with an appropriate file. If you have a different CPU not listed, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file. Additional instruction can be found here: bilbo's "Z820 - High Sierra, the Great Guide" ([link](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)). If you have a mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml from config.plist. macOs will run without CPU power management. Once up running, you can generate a correct SSDT file specific to your CPU.
+- For 2643V2/2667V2/2687w V2 CPUs, use one of the pre-made config_xxx.plist, which include special patched CpuDef table. Without it, macOS won't boot.
 
 #
 
