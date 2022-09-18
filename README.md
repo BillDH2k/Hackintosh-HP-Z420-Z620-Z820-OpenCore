@@ -1,23 +1,98 @@
+# OpenCore EFI for HP Z420-Z620-Z820 (0.8.4/0.7.1)
+
+**(9/15/2022) Release 3.0 - Add new kernel patches to enable full CPU Power Management for Sandy-Bridge CPUs (V1 Xeons)**
+
+Update main EFI to OC 0.8.4. Added new kernel patches to enable full CPU Power Management for Sandy-Bridge Xeon's (V1 verions). Read details under the Release History section below.**
+
+
+
+# About this EFI
+
+OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macOS Catalina (10.15.7) to  Monterey (12.6 tested). 
+
+**Supported Hardware**
+
+- HP Z420/Z620/Z820 (BIOS 3.96)
+- CPUs: E5-1600/2600 V1 Xeon's (Sandy-Bridge) or V2 Xeon's (Ivy-Bridge)
+- Required BIOS Settings: Enable UEFI boot, set SATA to AHCI mode, Disable Vt-d, and enable "Legacy ACPI Tables".
+
+# 
+
+**EFI Folders (Two Versions):**
+
+- **EFI with OC 0.8.4**
+	- Support Big Sur and Monterey. Fresh install or update.
+
+- **EFI with OC 0.7.1**:
+	- Mainly for supporting Catalina OS
+	- Support for Catalina/Big Sur (fresh install/update), Monterey (boot to existing install only)
+	- Fresh install/update to Monterey must use the newer EFI (above). Update from Catalina to Monterey must be done by booting up an USB installation stick. 
+
+- **Choose the Correct config.plist**
+	- For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist)
+	- For Ivy-bridge CPUs (V2 Xeon's), use **config_IvyCPUs.plist** (rename it to config.list)
+
+# 
+
+- **What Works**:
+	- CPU Power Power Management (all processor models)
+	- On-board Audio via AppleALC (Front/Back Jacks, internal speaker)
+	- USB2 ports, Ethernet, On-Board SAS (Z820 only)
+	- USB3 (Catalina only)
+
+- **What Not Work**:
+	- Sleep/Wake (Must disable from macOS, System Preference->Energy Saver->Prevent computer from sleeping)
+	- USB3 ports not working under Big Sur or higher (no driver support for the TI chip)
+
+# 
+
+**Pre/Post-Install:**
+
+- You must generate and add your own Serial # & Board ID to config.plist
+
+- For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few in the ACPI folder. Simply overwrite "SSDT-CPUPM.aml" with an appropriate file. If you have a different CPU not listed, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file. Additional instruction can be found here: bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)). If you have a mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml from config.plist. macOs will run without CPU power management. Once up running, you can generate a correct SSDT file specific for your CPU. For 2643V2/2667V2/2687w V2 CPUs, however, you need to use one of my pre-made config.plist. Without proper patched CpuDef, macOS won't boot.
+
+#
+
+**Credits:**
+
+- bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)). Also many of the follow-up posts in the same forum. My build wouldn't possible without these guy's work.
+- Dortania's OpenCore Install Guide ([Here](https://dortania.github.io/OpenCore-Install-Guide/))
+
+# 
+
+# ------------ Release History ------------
+
+# Release 3.0 - Updated OC to 0.8.4, and added CPU Power managment for V1 Xeon's 
+(9/15/2022)
+
+**Added support to enable full CPU Power Management for systems running Sandy-Bridge V1 Xeon CPUs**. 
+
+Newer kernel patches were available to patch the AICPUPM for Big Sur/Monterey to enable full CPU Power Management for Sandy-Bridge CPUs (Credit to the link [here](https://www.insanelymac.com/forum/topic/346988-sandy-bridge-e-power-management-big-sur-1121-big-sur-114/)). With these patches, the earlier version of the HP systems (Bios Boot Block Date 2011) running V1 Xeon's can enjoy latest macOS, like their counter parts with V2 Xeon's, with full CPU Power management.
+
+I have upgraded the EFI folder (to OC 0.8.4) as well as the Release 1.0 EFI (OC 0.7.1) to incorporate the new kernel patches. Two sets of config.plist files are provided: **config_IvyCPUs.plist** for systems running Ivy-Bridge CPUs, and **config_SandyCPUs.plist** for systems running Sandy-Bridge CPUs. Use the one atching your CPU and rename it as config.plist. 
+
+OC 0.7.1 EFI is provided soly for the purpose of supporting Catalina. This EFI fully supports Catalina and Big Sur, but can only boot to an existing Monterey install. Fresh install or upgrade to Monterey with OC 0.7.1 would fail. You need to use the newer EFI to accomplish this. If you must update from Catalina, the only path is to Big Sur first, using 0.7.1 EFI. Once in Big Sur, you may update to Monterey, using the newer 0.8.4 EFI. 
+
+
 # Release 2.2 - Hackintosh-HP-Z420-Z620-Z820-OpenCore (0.7.8)
-(4/19/2022) V2.2 for OC 0.7.8 
+(4/19/2022) V2.2
 
-**1. Added support for three more CPUs models: 2643 V2, 2667 V2, 2687w V2**. 
+**1. Added support for three more CPUs models: 2643 V2, 2667 V2, 2687w V2**. These CPUs require special patched CpuDef table, by removing unused/out-of-order CPU definitions that cause Kernal panic during booting (KP: # of threads, but (#+1) registered from MADT ...). I have finally figured out how to properly patch them, used in conjunction with enabling "Drop Oem CpuDef".
 
-These CPUs require special patched CpuDef table, by removing unused/out-of-order CPU definitions that cause Kernal panic during booting (KP: # of threads, but (#+1) registered from MADT ...). I have finally figured out how to properly patch them, used in conjunction with enabling "Drop Oem CpuDef". If you have one of these CPUs, use one of the provided config_xxx.plist files and rename it as config.plist.
+If you have one of these CPUs, use one of the provided config_xxx.plist files and rename it as config.plist.
 
-**2. Updated all CPUPM files**: with full dual CPU supports. Also defaulted LAN driver to IntelMausi.kext. Dual port driver (AppleIntelE1000e.kext) may cause NVME booting issue in some configuration.
+**2. Updated all CPUPM files**: with full dual CPU supports.
 
-**3. Updated 1.0 Release (OC 0.7.1) to include the new CPU supports**. Available for download at the Release 1.0, under the Asset tag.
+**Pre/Post-install (update)**:
 
-**Pre/Post-install**:
-
-Please read the "Pre/Post-Install" instruction on the release note 1.0  below.  
+You must add your own Serial # & Board Info. I have removed the anonymous # for safety reason.
 
 
 # Release 2.1 - Hackintosh-HP-Z420-Z620-Z820-OpenCore (0.7.8)
 (3/25/2022) V2.1
 
-Added boot-chime (boot sound). Updated USBInjectAll.kext to support MacPro7,1 SYMBIOS (fixed USB ports disappearing issue), but MacPro6,1 still appears to be the optimal SYMBIOS for this platform (better CPU Power management?). Removed TSC kext since it is no longer needed for this platform.
+Added boot-chime (boot sound). Updated USBInjectAll.kext to support MacPro7,1 SYMBIOS (fixed USB ports disappearing issue), but MacPro6,1 still appears to be the optimal SYMBIOS for this platform (better CPU Power management). Removed TSC kext since it is no longer needed for this platform.
 
 (3/4/2022) V2.0
 
