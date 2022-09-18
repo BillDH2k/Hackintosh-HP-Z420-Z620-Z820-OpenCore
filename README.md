@@ -1,8 +1,8 @@
 # OpenCore EFI for HP Z420-Z620-Z820 (0.8.4/0.7.1)
 
-**(9/15/2022) Release 3.0 - Add new kernel patches to enable full CPU Power Management for Sandy-Bridge CPUs (V1 Xeons)**
+**(9/15/2022) Release 3.0 - Updated to OC 0.8.4. Added new kernel patches to enable full CPU Power Management for Sandy-Bridge CPUs (V1 Xeons)**
 
-Updated main EFI to OC 0.8.4. Added new kernel patches to enable full CPU Power Management for Sandy-Bridge Xeon's (V1 verions, on all versions of the motherboards). Details under the Release History section below.
+Updated main EFI to OC 0.8.4. Added new kernel patches to enable full CPU Power Management for Sandy-Bridge Xeon's (V1 verions, all motherboard revisions). Details under the Release History section below.
 
 
 
@@ -12,7 +12,7 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 
 **Supported Hardware**
 
-- HP Z420/Z620/Z820 (BIOS 3.96)
+- HP Z420/Z620/Z820 (BIOS 3.96, all motherboard revisions)
 - CPUs: E5-1600/2600 V1 Xeon's (Sandy-Bridge) or V2 Xeon's (Ivy-Bridge)
 - Required BIOS Settings: Enable UEFI boot, set SATA to AHCI mode, Disable Vt-d, and enable "Legacy ACPI Tables".
 
@@ -26,12 +26,12 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 - **EFI with OC 0.7.1**:
 	- Mainly for supporting Catalina OS
 	- Support Catalina/Big Sur (fresh install or update), Monterey (boot to existing install only)
-	- Monterey install/update must use the newer EFI (0.8.4). Update from Catalina to Monterey must be done by booting up a Monterey USB installation stick. 
+	- Monterey install/update must use the newer EFI (0.8.4). Update from Catalina to Monterey must be done by booting up an USB Monterey installation stick. 
 
 - **Choose the Correct config.plist**
 	- For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist)
 	- For Ivy-bridge CPUs (V2 Xeon's), use **config_IvyCPUs.plist** (rename it to config.list)
-	- If you have 2643V2, 2667V2, or 2687w V2 CPUs, use the corresponding customized config_26XXV2.plist.
+	- If you have 2643V2, 2667V2, or 2687w V2 CPUs, use the corresponding customized **config_26XXV2.plist**.
 
 # 
 
@@ -70,11 +70,11 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 
 **Added support to enable full CPU Power Management for systems running Sandy-Bridge V1 Xeon CPUs**. 
 
-Newer kernel patches were available to patch the AICPUPM for Big Sur/Monterey to enable full CPU Power Management for Sandy-Bridge CPUs (Credit to the link [here](https://www.insanelymac.com/forum/topic/346988-sandy-bridge-e-power-management-big-sur-1121-big-sur-114/)). With these patches, the earlier version of the HP systems (Bios Boot Block Date 2011) running V1 Xeon's can enjoy latest macOS, like their counter parts with V2 Xeon's, with full CPU Power management.
+- Newer kernel patches were available to patch the AICPUPM for Big Sur/Monterey to enable full CPU Power Management for Sandy-Bridge CPUs (Credit to the link [here](https://www.insanelymac.com/forum/topic/346988-sandy-bridge-e-power-management-big-sur-1121-big-sur-114/)). With these patches, the earlier revision of the HP systems (Bios Boot Block Date 2011) running V1 Xeon's can enjoy latest macOS, with full CPU Power management. Systems running V2 Xeon's do not require these patches.
 
-I have upgraded the main EFI folder (to OC 0.8.4) as well as the EFI (OC 0.7.1) to incorporate the new kernel patches. Two sets of config.plist files are provided: **config_IvyCPUs.plist** for systems running Ivy-Bridge CPUs, and **config_SandyCPUs.plist** for systems running Sandy-Bridge CPUs. Use the one matching your CPU and rename it as config.plist. 
+- Two EFIs are provided: EFI with OC 0.8.4 and EFI with OC 0.7.1. Two versions of the config.plist files are provided: **config_IvyCPUs.plist** for systems running Ivy-Bridge CPUs, and **config_SandyCPUs.plist** for systems running Sandy-Bridge CPUs. Use the one matching your CPU and rename it as config.plist. 
 
-OC 0.7.1 EFI is provided soly for the purpose of supporting Catalina. This EFI fully supports Catalina and Big Sur, but can only boot to an existing Monterey install. Fresh install or upgrade to Monterey with OC 0.7.1 would fail. You need to use the newer EFI to accomplish this. If you must update from Catalina, the only path is to Big Sur first, using 0.7.1 EFI. Once in Big Sur, you may update to Monterey, using the newer 0.8.4 EFI. 
+- EFI (0.7.1) is used mainly for supporting Catalina. This EFI fully supports Catalina and Big Sur (install/update), but can only boot to an existing Monterey install. Fresh install or upgrade to Monterey with this EFI will fail (limitation of OC 0.7.1). You need to use the newer EFI (0.8.4) to accomplish this. If you must update from Catalina to Monterey directly, you must boot up a Monterey USB install stick to do this, using the newer EFI. 
 
 
 # Release 2.2 - Hackintosh-HP-Z420-Z620-Z820-OpenCore (0.7.8)
@@ -86,11 +86,6 @@ If you have one of these CPUs, use one of the provided config_xxx.plist files an
 
 **2. Updated all CPUPM files**: with full dual CPU supports.
 
-**Pre/Post-install (update)**:
-
-You must add your own Serial # & Board Info. I have removed the anonymous # for safety reason.
-
-
 # Release 2.1 - Hackintosh-HP-Z420-Z620-Z820-OpenCore (0.7.8)
 (3/25/2022) V2.1
 
@@ -98,7 +93,7 @@ Added boot-chime (boot sound). Updated USBInjectAll.kext to support MacPro7,1 SY
 
 (3/4/2022) V2.0
 
-For Z420/620/820 systems with Ivy-Bridge CPUs (V2 Xeons on motherboards with BIOS Boot Block date 2013), Big Sur and Monterey supported. Systems with V1 Xeons (BIOS Boot Block date 2011) should stay at 0.7.1. unless OC booting issues can be resolved (read below)
+For Z420/620/820 systems with Ivy-Bridge CPUs (V2 Xeons on motherboards with BIOS Boot Block date 2013), Big Sur and Monterey supported. Systems with V1 Xeons (BIOS Boot Block date 2011) should stay at 0.7.1. unless OC booting issues can be resolved (read below). (**Update (9/15/2022)**: issue resolved with Release 3.0)
 
 Finally took the effort to upgrade the OC to 0.7.8. Due to Secure Boot feature added, I was unable to boot up OC 0.7.2 and higher, for systems with Sandy-Bridge CPUs (i.e. V1 32nm Xeons, BIOS Boot Block date 2011). Either the Picker does not show up , or no macOS partitions show up. There is no issue, however, with systems that running Ivy-Bridge CPUs (V2 22nm Xeons, BIOS Boot Block date 2013).
 
