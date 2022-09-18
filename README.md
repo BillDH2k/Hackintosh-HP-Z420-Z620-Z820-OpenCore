@@ -71,7 +71,7 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 
 Newer kernel patches were available to patch the AICPUPM for Big Sur/Monterey to enable full CPU Power Management for Sandy-Bridge CPUs (Credit to the link [here](https://www.insanelymac.com/forum/topic/346988-sandy-bridge-e-power-management-big-sur-1121-big-sur-114/)). With these patches, the earlier version of the HP systems (Bios Boot Block Date 2011) running V1 Xeon's can enjoy latest macOS, like their counter parts with V2 Xeon's, with full CPU Power management.
 
-I have upgraded the main EFI folder (to OC 0.8.4) as well as the EFI (OC 0.7.1) to incorporate the new kernel patches. Two sets of config.plist files are provided: **config_IvyCPUs.plist** for systems running Ivy-Bridge CPUs, and **config_SandyCPUs.plist** for systems running Sandy-Bridge CPUs. Use the one atching your CPU and rename it as config.plist. 
+I have upgraded the main EFI folder (to OC 0.8.4) as well as the EFI (OC 0.7.1) to incorporate the new kernel patches. Two sets of config.plist files are provided: **config_IvyCPUs.plist** for systems running Ivy-Bridge CPUs, and **config_SandyCPUs.plist** for systems running Sandy-Bridge CPUs. Use the one matching your CPU and rename it as config.plist. 
 
 OC 0.7.1 EFI is provided soly for the purpose of supporting Catalina. This EFI fully supports Catalina and Big Sur, but can only boot to an existing Monterey install. Fresh install or upgrade to Monterey with OC 0.7.1 would fail. You need to use the newer EFI to accomplish this. If you must update from Catalina, the only path is to Big Sur first, using 0.7.1 EFI. Once in Big Sur, you may update to Monterey, using the newer 0.8.4 EFI. 
 
