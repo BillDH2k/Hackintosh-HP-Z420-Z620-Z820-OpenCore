@@ -34,8 +34,8 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 	- If you have 2643V2, 2667V2, or 2687w V2 CPUs, use the corresponding customized **config_26XXV2.plist**.
 	
 - **Other Installation Note**
-	- Network LAN driver choice: For Z420 (Single LAN port), use IntelMausi.kext. For Z620/Z820 (Dual LAN ports), use AppleIntelE1000e.kext.
-	- Otherwise, you may experience random system lock up issue, especially true if NvMe SSD is used with a PCI-E adapter.
+	- Network LAN driver choice: For Z420 (Single LAN port), use **IntelMausi.kext**. For Z620/Z820 (Dual LAN ports), use **AppleIntelE1000e.kext**. Otherwise, you may experience random system lock up issue, especially true if NvMe SSD (via PCI-E adapter) is used.
+	- Currently AppleIntelE1000e.kext is enabled by default.
 
 # 
 
