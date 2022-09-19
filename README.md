@@ -23,7 +23,7 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 - **EFI with OC 0.8.4**
 	- Support Big Sur and Monterey. Fresh install or update.
 
-- **EFI with OC 0.7.1**:
+- **EFI with OC 0.7.1**
 	- Mainly for supporting Catalina OS
 	- Support Catalina/Big Sur (fresh install or update), Monterey (boot to existing install only)
 	- Monterey install/update must use the newer EFI (0.8.4). Update from Catalina to Monterey must be done by booting up an USB Monterey installation stick. 
@@ -32,6 +32,10 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 	- For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist)
 	- For Ivy-bridge CPUs (V2 Xeon's), use **config_IvyCPUs.plist** (rename it to config.list)
 	- If you have 2643V2, 2667V2, or 2687w V2 CPUs, use the corresponding customized **config_26XXV2.plist**.
+	
+- **Other Installation Note**
+	- Network LAN driver choice: For Z420 (Single LAN port), use IntelMausi.kext. For Z620/Z820 (Dual LAN ports), use AppleIntelE1000e.kext.
+	- Otherwise, you may experience random system lock up issue, especially true if NvMe SSD is used with a PCI-E adapter.
 
 # 
 

@@ -577,7 +577,7 @@
 				<key>BundlePath</key>
 				<string>IntelMausi.kext</string>
 				<key>Comment</key>
-				<string>V1.0.7</string>
+				<string>V1.0.7 (Single LAN, for Z420)</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -595,7 +595,7 @@
 				<key>BundlePath</key>
 				<string>AppleIntelE1000e.kext</string>
 				<key>Comment</key>
-				<string>V3.3.7</string>
+				<string>V3.3.7 (Dual LAN support, Z620/Z820. Not recommended for Z420)</string>
 				<key>Enabled</key>
 				<false/>
 				<key>ExecutablePath</key>
