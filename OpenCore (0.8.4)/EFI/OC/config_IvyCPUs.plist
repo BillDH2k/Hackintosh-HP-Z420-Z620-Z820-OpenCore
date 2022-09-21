@@ -571,7 +571,7 @@
 				<key>Comment</key>
 				<string>V1.0.7 (Single LAN, for Z420)</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/IntelMausi</string>
 				<key>MaxKernel</key>
@@ -589,7 +589,7 @@
 				<key>Comment</key>
 				<string>V3.3.7 (Dual LAN support, Z620/Z820. Not recommended for Z420)</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AppleIntelE1000e</string>
 				<key>MaxKernel</key>
