@@ -2,7 +2,7 @@
 
 **(9/15/2022) Release 3.0 - Updated to OC 0.8.4. Added new kernel patches to enable full CPU Power Management for Sandy-Bridge CPUs (V1 Xeons)**
 
-Updated main EFI to OC 0.8.4. Added new kernel patches to enable full CPU Power Management for Sandy-Bridge Xeon's (V1 verions, all motherboard revisions). Details under the Release History section below.
+Details under the Release History section below.
 
 
 
