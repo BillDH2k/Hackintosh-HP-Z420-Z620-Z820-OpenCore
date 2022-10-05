@@ -1186,13 +1186,13 @@
 			<key>AdviseFeatures</key>
 			<false/>
 			<key>MLB</key>
-			<string>F5K412500J9FHDDFB</string>
+			<string>XXXXXXXX</string>
 			<key>MaxBIOSVersion</key>
 			<false/>
 			<key>ProcessorType</key>
 			<integer>0</integer>
 			<key>ROM</key>
-			<data>/HTH2NMO</data>
+			<data>ESIzRFZW</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemMemoryStatus</key>
@@ -1200,9 +1200,9 @@
 			<key>SystemProductName</key>
 			<string>MacPro6,1</string>
 			<key>SystemSerialNumber</key>
-			<string>F5KMG0RSF9VM</string>
+			<string>XXXXXXXX</string>
 			<key>SystemUUID</key>
-			<string>E3D75D73-F373-4155-AE5F-3F274F345155</string>
+			<string>XXXXXXXX</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
