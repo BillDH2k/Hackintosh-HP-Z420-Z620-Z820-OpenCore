@@ -1,6 +1,6 @@
-# OpenCore EFI for HP Z420-Z620-Z820 (0.8.4/0.7.1)
+# OpenCore EFI for HP Z420-Z620-Z820 (0.9.1/0.7.1)
 
-**(9/15/2022) Release 3.0 - Updated to OC 0.8.4. Added new kernel patches to enable full CPU Power Management for Sandy-Bridge CPUs (V1 Xeons)**
+**(4/29/2023) Release 3.1 - Updated to OC 0.9.1. **
 
 Details under the Release History section below.
 
@@ -8,7 +8,7 @@ Details under the Release History section below.
 
 # About this EFI
 
-OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macOS Catalina (10.15.7) to  Monterey (12.6 tested). 
+OpenCore loader (0.9.1 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macOS Catalina (10.15.7) to  Monterey (12.6 tested). 
 
 **Supported Hardware**
 
@@ -20,13 +20,13 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 
 **EFI Folders (Two Versions):**
 
-- **EFI with OC 0.8.4**
+- **EFI with OC 0.9.1**
 	- Support Big Sur and Monterey. Fresh install or update.
 
 - **EFI with OC 0.7.1**
 	- Mainly for supporting Catalina OS
 	- Support Catalina/Big Sur (fresh install or update), Monterey (boot to existing install only)
-	- Monterey install/update must use the newer EFI (0.8.4). Update from Catalina to Monterey must be done by booting up an USB Monterey installation stick. 
+	- Monterey install/update must use the newer EFI (0.9.1). Update from Catalina to Monterey must be done by booting up an USB Monterey installation stick. 
 
 - **Choose the Correct config.plist**
 	- For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist)
@@ -47,7 +47,7 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 
 - **What Not Work**:
 	- Sleep/Wake (Must disable from macOS, System Preference->Energy Saver->Prevent computer from sleeping)
-	- USB3 ports not working under Big Sur or higher (no driver support for the TI chip)
+	- USB3 ports not working under Big Sur or higher (no driver support for the TI chip). Recommend compatible USB3 PCIe add-on card, e.g. Inateck KT4006.
 
 # 
 
@@ -68,6 +68,10 @@ OpenCore loader (0.8.4 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 # 
 
 # ------------ Release History ------------
+# Release 3.1 - Updated OC to 0.9.1
+(4/29/2023)
+
+** Updated OpenCore to 0.9.1 
 
 # Release 3.0 - Updated OC to 0.8.4, and added CPU Power managment for V1 Xeon's 
 (9/15/2022)
