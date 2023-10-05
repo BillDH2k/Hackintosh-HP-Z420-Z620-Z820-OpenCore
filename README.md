@@ -1,6 +1,6 @@
-# OpenCore EFI for HP Z420-Z620-Z820 (0.9.1/0.7.1)
+# OpenCore EFI for HP Z420-Z620-Z820 (0.9.5/0.7.1)
 
-**(4/29/2023) Release 3.1 - Updated to OC 0.9.1. **
+**(10/5/2023) Release 3.2 - Updated to OC 0.9.5. **
 
 Details under the Release History section below.
 
@@ -8,7 +8,7 @@ Details under the Release History section below.
 
 # About this EFI
 
-OpenCore loader (0.9.1 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macOS Catalina (10.15.7) to  Monterey (12.6 tested). 
+OpenCore loader (0.9.5 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macOS Catalina (10.15.7) to  Monterey (12.7 tested). 
 
 **Supported Hardware**
 
@@ -20,7 +20,7 @@ OpenCore loader (0.9.1 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 
 **EFI Folders (Two Versions):**
 
-- **EFI with OC 0.9.1**
+- **EFI with OC 0.9.5**
 	- Support Big Sur and Monterey. Fresh install or update.
 
 - **EFI with OC 0.7.1**
@@ -68,6 +68,11 @@ OpenCore loader (0.9.1 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 # 
 
 # ------------ Release History ------------
+# Release 3.2 - Updated OC to 0.9.5
+(10/5/2023)
+
+** Updated OpenCore to 0.9.5 
+
 # Release 3.1 - Updated OC to 0.9.1
 (4/29/2023)
 
