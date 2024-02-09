@@ -1,4 +1,4 @@
-# OpenCore EFI for HP Z420-Z620-Z820 (0.9.7/0.7.1)
+# OpenCore EFI for HP Z420-Z620-Z820 (0.9.7)
 
 **(2/8/2024) Release 3.3 **
 - Updated to OC 0.9.7. Removed EFI 0.7.1 folder.
@@ -18,10 +18,11 @@ OpenCore loader (0.9.7) for HP workstations Z420/Z620/Z820. Support macOS Catali
 
 # 
 
-**EFI Folders (Two Versions):**
+**EFI Folders:**
 
 - **EFI with OC 0.9.7**
-	- Support Catalina, Big Sur and Monterey. 
+	- Support Catalina, Big Sur and Monterey.
+ 	- SYMBIOS MacPro7,1 (Also support MacPro6,1 or iMacPro1,1)
 
 - **Choose the Correct config.plist**
 	- For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist)
