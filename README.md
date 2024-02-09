@@ -21,7 +21,8 @@ OpenCore loader (0.9.7) for HP workstations Z420/Z620/Z820. Support macOS Catali
 **EFI Folders:**
 
 - **EFI with OC 0.9.7**
-	- Support Catalina, Big Sur and Monterey. 
+	- Support Catalina, Big Sur and Monterey.
+ 	- SYMBIOS MacPro7,1 (Also support MacPro6,1 or iMacPro1,1)
 
 - **Choose the Correct config.plist**
 	- For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist)
