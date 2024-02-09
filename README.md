@@ -1,6 +1,6 @@
 # OpenCore EFI for HP Z420-Z620-Z820 (0.9.7/0.7.1)
 
-**(2/8/2024) Release 3.2 **
+**(2/8/2024) Release 3.3 **
 - Updated to OC 0.9.7. Removed EFI 0.7.1 folder.
 
 Details under the Release History section below.
