@@ -18,7 +18,7 @@ OpenCore loader (0.9.7) for HP workstations Z420/Z620/Z820. Support macOS Catali
 
 # 
 
-**EFI Folders (Two Versions):**
+**EFI Folders:**
 
 - **EFI with OC 0.9.7**
 	- Support Catalina, Big Sur and Monterey. 
