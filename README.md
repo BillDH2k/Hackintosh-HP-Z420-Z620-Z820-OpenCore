@@ -1,14 +1,15 @@
-# OpenCore EFI for HP Z420-Z620-Z820 (0.9.5/0.7.1)
+# OpenCore EFI for HP Z420-Z620-Z820 (0.9.7/0.7.1)
 
-**(10/5/2023) Release 3.2 - Updated to OC 0.9.5. **
+**(2/8/2024) Release 3.2 **
+- Updated to OC 0.9.7.
+- Removed EFI 0.7.1 folder 
 
 Details under the Release History section below.
 
 
-
 # About this EFI
 
-OpenCore loader (0.9.5 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macOS Catalina (10.15.7) to  Monterey (12.7 tested). 
+OpenCore loader (0.9.7) for HP workstations Z420/Z620/Z820. Support macOS Catalina (10.15.7) to  Monterey (12.7 tested). 
 
 **Supported Hardware**
 
@@ -20,13 +21,8 @@ OpenCore loader (0.9.5 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 
 **EFI Folders (Two Versions):**
 
-- **EFI with OC 0.9.5**
-	- Support Big Sur and Monterey. Fresh install or update.
-
-- **EFI with OC 0.7.1**
-	- Mainly for supporting Catalina OS
-	- Support Catalina/Big Sur (fresh install or update), Monterey (boot to existing install only)
-	- Monterey install/update must use the newer EFI (0.9.5). Update from Catalina to Monterey must be done by booting up an USB Monterey installation stick. 
+- **EFI with OC 0.9.7**
+	- Support Catalina, Big Sur and Monterey. 
 
 - **Choose the Correct config.plist**
 	- For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist)
@@ -56,7 +52,7 @@ OpenCore loader (0.9.5 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 - You must generate and add your own Serial # & Board ID to config.plist
 
 - For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few in the ACPI folder. Simply overwrite "SSDT-CPUPM.aml" with an appropriate file. If you have a different CPU not listed, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file. Additional instruction can be found here: bilbo's "Z820 - High Sierra, the Great Guide" (step #29) ([link](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)). If you have a mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml from config.plist. macOs will run without CPU power management. Once up running, you can generate a correct SSDT file specific to your CPU.
-- For 2643V2/2667V2/2687w V2 CPUs, use one of the pre-made config_xxx.plist, which include special patched CpuDef table. Without it, macOS won't boot.
+
 
 #
 
@@ -68,6 +64,12 @@ OpenCore loader (0.9.5 & 0.7.1) for HP workstations Z420/Z620/Z820. Support macO
 # 
 
 # ------------ Release History ------------
+# Release 3.3 - Updated OC to 0.9.7
+(2/8/2023)
+
+** Updated OpenCore to 0.9.7
+** Removed EFI 0.7.1 folder. Catalina is supported by the newer EFI 0.9.7.
+
 # Release 3.2 - Updated OC to 0.9.5
 (10/5/2023)
 
