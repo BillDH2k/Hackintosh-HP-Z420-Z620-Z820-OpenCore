@@ -120,7 +120,7 @@ The steps outlined below were tailored from the excellent [instruction guide](ht
 
 **Step 5:** Post OCLP change
 
-- If OCLP root patching is successfully (Step 4), remove the following boot-args , if they were added from the previous steps:
+- If OCLP root patching is successful (Step 4), remove the following boot-args, if they were added from the previous steps:
 	- "-amd_no_dgpu_accel"
 	- "nv_disable=1"
 	- "amfi=0x80"
