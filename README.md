@@ -6,7 +6,7 @@
 
 # About this EFI
 
-**macOS support**
+**1. macOS support**
 
 - **Catalina/Big Sur/Monterey:**
 	- Native support (Recommended)
@@ -16,7 +16,7 @@
 	- Please follow the **step-by-step instruction** below.
 #
 
-**Supported Hardware**
+**2. Supported Hardware**
 
 - HP Z420/Z620/Z820 (BIOS 3.96, all motherboard revisions)
 - CPUs: E5-1600/2600 V1 Xeon's (Sandy-Bridge) or V2 Xeon's (Ivy-Bridge)
@@ -24,7 +24,7 @@
 
 # 
 
-**What Works**:
+**3. What Works**:
 
 - CPU Power Management (all processor models)
 - On-board Audio (Front/Back Jacks, internal speaker)
@@ -40,38 +40,41 @@
 
 #
 
-# EFI Folder
+# 4. EFI Folder
 
-**EFI with OC 0.9.7**:
+**4.1 EFI with OC 0.9.7**:
 
 - Support Catalina - Sonoma (14.3.1 tested).
 - SUMBIOS: MacPro7,1 (default) or iMacPro1,1. MacPro6,1 is supported up to Monterey.
 
-**Choose the Correct config.plist**:
+**4.2 Choose the Correct config.plist**:
 
 - For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist).
 - For Ivy-bridge CPUs (V2 Xeon's), use **config_IvyCPUs.plist** (rename it to config.plist).
 - If you have 2643V2, 2667V2, or 2687w V2 CPUs, use the corresponding customized c**onfig_26XXV2.plist**.
-- Choose the correct CPU PM file (e.g. SSDT_2650V2.aml, for 2650V2 CPU):
-	- You may either overwrite SSDT_CPUPM.aml file (currently selected by config.plist)
-	- or, edit config.list->Root->ACPI->Add, to pick the specific CPU PM file
+- Choose the correct CPU PM file that matches your CPU (e.g. SSDT_2650V2.aml, for 2650V2 CPU):
+	- You may either overwrite SSDT_CPUPM.aml file with the correct PM file, or
+	- Modify config.list (ACPI->Add section) to pick the specific CPU PM file
+	- If your CPU is not listed, pick the one with closest match. Once install is completed, generate your own (see Post-Install).
 
-**For Catalina/Big Sur/Monterey:**
+**4.3 For Catalina/Big Sur/Monterey:**
 
 - Just use the renamed config.plist, with the correct CPU PM file.
 
-**For Sonoma/Ventura:**
+**4.4 For Sonoma/Ventura:**
 
 - Follow **Sonoma/Ventura step-by-step instruction** below.
 
-**Other Installation Note:**
+#
+
+**5. Other Installation Note:**
 
 - Network LAN driver choice: For Z420 (Single LAN port), use **IntelMausi.kext**. For Z620/Z820 (Dual LAN ports), use **AppleIntelE1000e.kext**. Otherwise, you might experience random system lock up, especially true if NvMe SSD (via PCI-E adapter) is used.
 - Currently AppleIntelE1000e.kext is enabled by default in the config.list.
 
 #
 
-# Pre/Post-Install
+# 6. Pre/Post-Install
 
 - You must generate and add your own Serial # & Board ID to config.plist
 
@@ -79,13 +82,13 @@
 
 
 
-# Sonoma/Ventura step-by-step instruction
+# 7. Sonoma/Ventura step-by-step instruction
 
 The steps outlined below were tailored from the excellent [instruction guide](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Ivy_Bridge.md) written by [5T33Z0](https://github.com/5T33Z0).
 
-**Step 1.** Start with the appropraite template config_xxxxxx.plist (rename it to config.plist)
+**Step 1.** Pick the correct config.plist templatye (section 4.2 above)
 
-- Choose the correct SSDT CPU PM file that matches your CPU.
+- Use the correct CPU PM file.
 - Verify that this EFI works with your current Monterey/Big Sur setup (if you have one installed), with full CPU power management (use Intel Power Gadget tool).
 
 	
@@ -122,12 +125,12 @@ The steps outlined below were tailored from the excellent [instruction guide](ht
 	- "nv_disable=1"
 	- "amfi=0x80"
 	- "revpatch=sbvmm"
-- Leave csr-active-config as <03080000>
+- Leave csr-active-config as 03080000
 - Reboot. Perform NVRAM reset. Reboot again.
 
 **Note:**
 
-- If you properly followed the steps above, the final EFI should be able to boot exisitng Big-Sur, Monterey, and Ventura/Sonoma ()
+- If you properly followed the steps above, the final EFI should be able to boot exisitng Big-Sur, Monterey, and Ventura/Sonoma
 
 #
 
