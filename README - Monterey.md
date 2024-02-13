@@ -1,20 +1,16 @@
 # OpenCore EFI for HP Z420-Z620-Z820 (0.9.7)
 
-**(2/12/2024) Release 3.4**
+** Upcoming (Sonoma/Ventura support) **
 
-- Added Sonona/Ventura support.
+**(2/8/2024) Release 3.3 **
+- Updated to OC 0.9.7. Removed EFI 0.7.1 folder.
+
+Details under the Release History section below.
+
 
 # About this EFI
 
-**macOS support**
-
-- **Catalina/Big Sur/Monterey:**
-	- Native support (Recommended)
-	
-- **Ventura/Sonoma:**
-	- Root patching with OCLP is required to enable graphic hardware acceleration. Check [OCLP page](https://github.com/dortania/OpenCore-Legacy-Patcher "GitHub - dortania/OpenCore-Legacy-Patcher") for other limitations. 
-	- Please follow the **step-by-step instruction** below.
-#
+OpenCore loader (0.9.7) for HP workstations Z420/Z620/Z820. Support macOS Catalina (10.15.7) to  Monterey (12.7 tested). 
 
 **Supported Hardware**
 
@@ -24,110 +20,41 @@
 
 # 
 
-**What Works**:
+**EFI Folders:**
 
-- CPU Power Management (all processor models)
-- On-board Audio (Front/Back Jacks, internal speaker)
-- USB2 ports, Ethernet, On-Board SAS (Z820 only)
-- USB3 (Catalina only)
+- **EFI with OC 0.9.7**
+	- Support Catalina, Big Sur and Monterey.
+ 	- SYMBIOS MacPro7,1 (Also support MacPro6,1 or iMacPro1,1)
 
-**What Not Work**:
+- **Choose the Correct config.plist**
+	- For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist)
+	- For Ivy-bridge CPUs (V2 Xeon's), use **config_IvyCPUs.plist** (rename it to config.plist)
+	- If you have 2643V2, 2667V2, or 2687w V2 CPUs, use the corresponding customized **config_26XXV2.plist**.
+	
+- **Other Installation Note**
+	- Network LAN driver choice: For Z420 (Single LAN port), use **IntelMausi.kext**. For Z620/Z820 (Dual LAN ports), use **AppleIntelE1000e.kext**. Otherwise, you may experience random system lock up, especially true if NvMe SSD (via PCI-E adapter) is used.
+	- Currently AppleIntelE1000e.kext is enabled by default in the config.list.
 
-- Sleep/Wake (Must disable from macOS, System Preference->Energy Saver->Prevent computer from sleeping)
-- USB3 ports not working under Big Sur or higher (no driver support).
-- **Z820 DUAL CPU setup:** boot issue (random lockup) under Sonoma/Ventura. Solution: stay with Monterey. No issue with single CPU. 
-- **Z620 DUAL CPU setup:** occationally locks up during booting under Sonamoa/Ventura. Reboot again normally works.
+# 
 
-#
+- **What Works**:
+	- CPU Power Management (all processor models)
+	- On-board Audio via AppleALC (Front/Back Jacks, internal speaker)
+	- USB2 ports, Ethernet, On-Board SAS (Z820 only)
+	- USB3 (Catalina only)
 
-# EFI Folder
+- **What Not Work**:
+	- Sleep/Wake (Must disable from macOS, System Preference->Energy Saver->Prevent computer from sleeping)
+	- USB3 ports not working under Big Sur or higher (no driver support for the TI chip). Recommend compatible USB3 PCIe add-on card, e.g. Inateck KT4006.
 
-**EFI with OC 0.9.7**:
+# 
 
-- Support Catalina - Sonoma (14.3.1 tested).
-- SUMBIOS: MacPro7,1 (default) or iMacPro1,1. MacPro6,1 is supported up to Monterey.
-
-**Choose the Correct config.plist**:
-
-- For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist).
-- For Ivy-bridge CPUs (V2 Xeon's), use **config_IvyCPUs.plist** (rename it to config.plist).
-- If you have 2643V2, 2667V2, or 2687w V2 CPUs, use the corresponding customized c**onfig_26XXV2.plist**.
-- Choose the correct CPU PM file (e.g. SSDT_2650V2.aml, for 2650V2 CPU):
-	- You may either overwrite SSDT_CPUPM.aml file (currently selected by config.plist)
-	- or, edit config.list->Root->ACPI->Add, to pick the specific CPU PM file
-
-**For Catalina/Big Sur/Monterey:**
-
-- Just use the renamed config.plist, with the correct CPU PM file.
-
-**For Sonoma/Ventura:**
-
-- Follow **Sonoma/Ventura step-by-step instruction** below.
-
-**Other Installation Note:**
-
-- Network LAN driver choice: For Z420 (Single LAN port), use **IntelMausi.kext**. For Z620/Z820 (Dual LAN ports), use **AppleIntelE1000e.kext**. Otherwise, you might experience random system lock up, especially true if NvMe SSD (via PCI-E adapter) is used.
-- Currently AppleIntelE1000e.kext is enabled by default in the config.list.
-
-#
-
-# Pre/Post-Install
+**Pre/Post-Install:**
 
 - You must generate and add your own Serial # & Board ID to config.plist
 
 - For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few in the ACPI folder. Simply overwrite "SSDT-CPUPM.aml" with an appropriate file. If you have a different CPU not listed, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file. Additional instruction can be found here: bilbo's "Z820 - High Sierra, the Great Guide" (step #29) ([link](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)). If you have a mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml from config.plist. macOs will run without CPU power management. Once up running, you can generate a correct SSDT file specific to your CPU.
 
-
-
-# Sonoma/Ventura step-by-step instruction
-
-The steps outlined below were tailored from the excellent [instruction guide](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Ivy_Bridge.md) written by [5T33Z0](https://github.com/5T33Z0).
-
-**Step 1.** Start with the appropraite config_xxx_Sonoma.plist (rename it to config.plist)
-
-- Choose the correct SSDT CPU PM file that matches your CPU.
-- Verify that this EFI works with your current Monterey/Big Sur setup (if you have one installed), with full CPU power management (use Intel Power Gadget tool).
-
-	
-**Step 2.** Modify the boot-args (to disable the video card hardware acceleration)
-
-- boot-args:  config.plist->Root->NVRAM->7C436110-AB2A-4BBB-A880-FE41995C9F82->boot-args
-- Add the following flags to the boot-args:
-	- "-amd_no_dgpu_accel" &nbsp;&nbsp;&nbsp;&nbsp; if you have an AMD/Radeon card
-	- “nv_disable=1” &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if you have an nVidia Kepler card
-- optional:
-	- "revpatch=sbvmm" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for Sonoma 14.3 only. Not needed for 14.2, or 14.3.1 (my own testing). Otherwise, you may encounter "Software Update Error” after 1st reboot. If you encounter this error, just do a restart (or reboot) and the install would comoplete succesfully, except that the boot partition would end up as “Sonoma - Data”.
-
-**Step 3.** Install Sonoma/ventura (latest version recommended)
-
-- Reboot with the modified boot-args from Step 2. Make sure to perform a NVRAM reset (Important!)
-- Start Sonoma/Ventura installation:
-	 - by booting from an USB installer stick (my recommendation), or
-	 - directly from a downloaded full installer copied to the Application folder.
-- Once Sonoma is installed successfully, proceed to Step 4.
-
-**Step 4:** Apply OCLP patcher (to enable graphics card acceleration).
-
-- Modify config.plist again:
-	- csr-active-config to 03080000
-	- Add “amfi=0x80” to boot-args
-- Reboot. Perform NVRAM reset (Important). Reboot again.
-- Download the latest OCLP patcher ([OpenCore-Patcher-GUI.app](https://github.com/dortania/OpenCore-Legacy-Patcher/releases "GitHub - dortania/OpenCore-Legacy-Patcher/releases") )
-- Launch the OCLP patcher and choose “Post-Install Root Patch”.
-
-**Step 5:** Post OCLP change
-
-- If OCLP root patching is successfully (Step 4), remove the following boot-args , if they were added from the previous steps:
-	- "-amd_no_dgpu_accel"
-	- "nv_disable=1"
-	- "amfi=0x80"
-	- "revpatch=sbvmm"
-- Leave csr-active-config as <03080000>
-- Reboot. Perform NVRAM reset. Reboot again.
-
-**Note:**
-
-- If you properly followed the steps above, the final EFI should be able to boot exisitng Big-Sur, Monterey, and Ventura/Sonoma ()
 
 #
 
@@ -135,20 +62,16 @@ The steps outlined below were tailored from the excellent [instruction guide](ht
 
 - bilbo's "Z820 - High Sierra, the Great Guide" ([here](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)). Also many of the follow-up posts in the same forum. My build wouldn't possible without these guy's work.
 - Dortania's OpenCore Install Guide ([Here](https://dortania.github.io/OpenCore-Install-Guide/))
-- "Installing macOS Ventura or newer on Ivy Bridge systems" ([Here](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Ivy_Bridge.md) )
 
 # 
 
 # ------------ Release History ------------
-# Release 3.4 - Added Sonoma/Ventura support
-(2/12/2023)
-
-
 # Release 3.3 - Updated OC to 0.9.7
 (2/8/2023)
 
 ** Updated OpenCore to 0.9.7
-** Removed EFI 0.7.1 folder. Catalina is supported by the newer EFI 0.9.7.
+** Removed EFI 0.7.1 folder. Catalina support is added to the newer EFI 0.9.7.
+** Removed non-essential ACPI patches.
 
 # Release 3.2 - Updated OC to 0.9.5
 (10/5/2023)
