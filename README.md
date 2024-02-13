@@ -83,7 +83,7 @@
 
 The steps outlined below were tailored from the excellent [instruction guide](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Ivy_Bridge.md) written by [5T33Z0](https://github.com/5T33Z0).
 
-**Step 1.** Start with the appropraite config_xxx_Sonoma.plist (rename it to config.plist)
+**Step 1.** Start with the appropraite template config_xxxxxx.plist (rename it to config.plist)
 
 - Choose the correct SSDT CPU PM file that matches your CPU.
 - Verify that this EFI works with your current Monterey/Big Sur setup (if you have one installed), with full CPU power management (use Intel Power Gadget tool).
