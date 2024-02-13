@@ -99,7 +99,7 @@ The steps outlined below were tailored from the excellent [instruction guide](ht
 	- "-amd_no_dgpu_accel" &nbsp;&nbsp;&nbsp;&nbsp; if you have an AMD/Radeon card
 	- “nv_disable=1” &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if you have an nVidia Kepler card
 - optional:
-	- "revpatch=sbvmm" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for Sonoma 14.3 only. Not needed for 14.2, or 14.3.1 (my own testing). Otherwise, you may encounter "Software Update Error” after 1st reboot. If you encounter this error, just do a restart (or reboot) and the install would comoplete succesfully, except that the boot partition would end up as “Sonoma - Data”.
+	- "revpatch=sbvmm" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for Sonoma 14.3 only. Not needed for 14.2, or 14.3.1 (my own testing). Otherwise, you may encounter "Software Update Error” after 1st reboot. If you encounter this error, just do a restart (or reboot) and the install should complete succesfully, except that the boot partition would end up as “Sonoma - Data” (you could rename it later).
 
 **Step 3.** Install Sonoma/ventura (latest version recommended)
 
