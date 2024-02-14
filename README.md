@@ -53,9 +53,9 @@
 - For Ivy-bridge CPUs (V2 Xeon's), use **config_IvyCPUs.plist** (rename it to config.plist).
 - If you have 2643V2, 2667V2, or 2687w V2 CPUs, use the corresponding customized c**onfig_26XXV2.plist**.
 - Choose the correct CPU PM file that matches your CPU (e.g. SSDT_2650V2.aml, for 2650V2 CPU):
-	- You may either overwrite SSDT_CPUPM.aml file with the correct PM file, or
-	- Modify config.list (ACPI->Add section) to pick the specific CPU PM file
-	- If your CPU is not listed, pick the one with closest match. Once install is completed, generate your own (see Post-Install).
+	- You may either overwrite SSDT_CPUPM.aml file with your matching PM file, or
+	- Modify config.list (ACPI->Add section) to pick the right CPU PM file
+	- If your CPU is not listed, try SSDT_CPUPM.am (default, currently as 2670V1), or disable use of any PM file. Once install is completed, generate your own (see Post-Install), for optimal power management.
 
 **4.3 For Catalina/Big Sur/Monterey:**
 
