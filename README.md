@@ -55,7 +55,7 @@
 - Choose the correct CPU PM file that matches your CPU (e.g. SSDT_2650V2.aml, for 2650V2 CPU):
 	- You may either overwrite SSDT_CPUPM.aml file with your matching PM file, or
 	- Modify config.list (ACPI->Add section) to pick the right CPU PM file
-	- If your CPU is not listed, ~try SSDT_CPUPM.am (default,~ currently as 2670V1), disable use of any PM file. Once install is completed, generate your own (see Post-Install), for optimal power management.
+	- If your CPU is not listed, ~try SSDT_CPUPM.am (default, currently as 2670V1),~ disable use of any PM file. Once install is completed, generate your own (see Post-Install), for optimal power management.
 
 **4.3 For Catalina/Big Sur/Monterey:**
 
