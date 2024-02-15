@@ -105,8 +105,8 @@ The steps outlined below were tailored from the excellent [instruction guide](ht
 
 - Reboot with the modified boot-args from Step 2. Make sure to perform a NVRAM reset (Important!)
 - Start Sonoma/Ventura installation:
-	 - by booting from an USB installer stick (my recommendation), or
-	 - directly from a downloaded full installer copied to the Application folder.
+	 - by booting from an USB installer stick (my recommendation), ~~or
+	 - directly from a downloaded full installer copied to the Application folder.~~
 - Once Sonoma is installed successfully, proceed to Step 4.
 
 **Step 4:** Apply OCLP patcher (to enable graphics card acceleration).
