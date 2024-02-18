@@ -103,7 +103,7 @@ The steps outlined below were tailored from the excellent [instruction guide](ht
 
 **Step 3.** Install Sonoma/ventura (latest version recommended)
 
-- Reboot with the modified boot-args from Step 2. Make sure to perform a NVRAM reset (Important!)
+- Reboot with the modified boot-args from Step 2. Make sure to perform a NVRAM reset (Important! Note: at OC boot screen, hit SPACE BAR to show NVRAM RESET option)
 - Start Sonoma/Ventura installation:
 	 - by booting from an USB installer stick (my recommendation), or
 	 - for updating from existing Ventura/Sonoma, directly from a downloaded full installer copied to the Application folder.
