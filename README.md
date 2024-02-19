@@ -35,8 +35,7 @@
 
 - Sleep/Wake (Must disable from macOS, System Preference->Energy Saver->Prevent computer from sleeping)
 - USB3 ports not working under Big Sur or higher (no driver support).
-- **Z820 DUAL CPU setup:** boot issue (random lockup) under Sonoma/Ventura. Solution: stay with Monterey. No issue with single CPU. 
-- **Z620 DUAL CPU setup:** occationally locks up during booting under Sonamoa/Ventura. Reboot again normally works.
+- **Z820 DUAL CPU Boot Issue (Sonoma/Ventura):** random lockup defore reaching desktop. Solution: stay with Monterey. No issue with single CPU. **Z620 DUAL CPU**, however, works fine, except it may occationally experience lockup during booting. Reboot again normally works. Recommend to remove 2nd CPU card temporarily during Sonoma/Ventura install.
 
 #
 
