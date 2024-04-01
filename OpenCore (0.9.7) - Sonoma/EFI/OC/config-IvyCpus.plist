@@ -74,6 +74,14 @@
                     <key>Comment</key>
                     <string></string>
                     <key>Enabled</key>
+                    <false/>
+                    <key>Path</key>
+                    <string>SSDT-2697V2.aml</string>
+                </dict>
+                <dict>
+                    <key>Comment</key>
+                    <string></string>
+                    <key>Enabled</key>
                     <true/>
                     <key>Path</key>
                     <string>SSDT-CPUPM.aml</string>
