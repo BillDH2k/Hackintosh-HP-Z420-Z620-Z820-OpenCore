@@ -9,7 +9,7 @@
 **1. macOS support**
 
 - **Catalina/Big Sur/Monterey:**
-	- Native support (Recommended. Recommend eelease V3.3 EFI for Monterey or below)
+	- Native support (Recommended. Recommend release V3.3 EFI for Monterey or below)
 	
 - **Ventura/Sonoma:**
 	- Root patching with OCLP is required to enable graphic hardware acceleration. Check [OCLP page](https://github.com/dortania/OpenCore-Legacy-Patcher "GitHub - dortania/OpenCore-Legacy-Patcher") for other limitations. 
