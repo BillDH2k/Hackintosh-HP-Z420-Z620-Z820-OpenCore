@@ -8,7 +8,7 @@
 
 **1. macOS support**
 
-- **Ventura/Sonoma/Sequaio:**
+- **Ventura/Sonoma/Sequoia:**
 	- Root patching with OCLP is required to enable graphic hardware acceleration. Check [OCLP page](https://github.com/dortania/OpenCore-Legacy-Patcher "GitHub - dortania/OpenCore-Legacy-Patcher") for other limitations. 
 	- Please follow the **step-by-step instruction** below.
 
