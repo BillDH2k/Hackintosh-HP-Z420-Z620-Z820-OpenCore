@@ -3,15 +3,15 @@
 **(6/22/2025) Release 3.5**
 
 - OC 1.0.4 update. Tested on Sequoia 15.4.
-- NOTE: All Ventura or higher OS update/install should be done from a full USB installer.
+- NOTE: All Ventura or newer OS update/install should be done from a full USB installer.
 
 # About this EFI
 
 **1. macOS support**
 
 - **Ventura/Sonoma/Sequoia:**
-	- Root patching with OCLP is required to enable graphic hardware acceleration. Check [OCLP page](https://github.com/dortania/OpenCore-Legacy-Patcher "GitHub - dortania/OpenCore-Legacy-Patcher") for other limitations. 
 	- Please follow the **step-by-step instruction** below.
+	- Root patching with OCLP is required to enable graphic hardware acceleration. 
 
 - **Catalina/Big Sur/Monterey:**
 	- Native support (Recommend using release V3.3 EFI)
@@ -35,7 +35,7 @@
 
 **What Not Work**:
 
-- Sleep/Wake (Must disable from macOS, System Preference->Energy Saver->Prevent computer from sleeping)
+- Sleep/Wake (Must disable from macOS)
 - USB3 ports not working under Big Sur or higher (no driver support).
 - **Z820 DUAL CPU Boot Issue (Ventura or higher):** random lockup before reaching desktop. Solution: stay with Monterey or single CPU. **Z620 DUAL CPU**, however, works fine, except it may occationally experience lockup during booting. Reboot again normally works. Recommend to remove 2nd CPU card temporarily during Sequoia/Sonoma/Ventura install.
 
@@ -50,9 +50,9 @@
 
 **4.2 Choose the Correct config.plist**:
 
-- For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist).
-- For Ivy-bridge CPUs (V2 Xeon's), use **config_IvyCPUs.plist** (rename it to config.plist).
-- If you have 2643V2, 2667V2, or 2687w V2 CPUs, use the corresponding customized c**onfig_26XXV2.plist**.
+- For **Sandy-bridge CPUs** (V1 Xeon's), use config_SandyCPUs.plist (rename it to config.plist).
+- For **Ivy-bridge CPUs** (V2 Xeon's), use config_IvyCPUs.plist (rename it to config.plist).
+- If you have **2643V2, 2667V2, or 2687w V2 CPUs**, use the corresponding customized config_26XXV2.plist.
 - For proper CPU Power Management, choose the correct CPU PM file that matches your CPU model (e.g. SSDT_2650V2.aml, for 2650V2):
 	- You may either overwrite SSDT_CPUPM.aml file with your matching PM file, or
 	- Modify config.list (ACPI->Add section) to pick the right CPU PM file
@@ -79,6 +79,8 @@
 
 - You must generate and add your own Serial # & Board ID to config.plist
 
+- Download and create a macOS USB installer, by following Dortania's Guide ([Here](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html)). USB Booting is required for Ventura or newer update/install, to avoid any potential issues. Also USB installer created with OCLP patcher is not recommended for Hackintosh install.
+
 - For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few in the ACPI folder. Simply overwrite "SSDT-CPUPM.aml" with an appropriate file. If you have a different CPU not listed, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file. Additional instruction can be found here: bilbo's "Z820 - High Sierra, the Great Guide" (step #29) ([link](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)). If you have a mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml from config.plist. macOS will run without CPU power management. Once up running, you can generate a correct SSDT file specific to your CPU.
 
 
@@ -87,27 +89,26 @@
 
 The steps outlined below were tailored from the excellent [instruction guide](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Ivy_Bridge.md) written by [5T33Z0](https://github.com/5T33Z0).
 
-**Step 1.** Pick the correct config.plist templatye (section 4.2 above)
+**NOTE**: The following steps assume booting from an USB installer (required to avoid any potential issues).
+
+**Step 1.** Pick the correct config.plist template (section 4.2 above)
 
 - Use the correct CPU PM file.
 - Verify that this EFI works with your current Monterey/Big Sur setup (if you have one installed), with full CPU power management (use Intel Power Gadget tool to check).
+- Copy the EFI to the masOS USB installer's EFI partition.
 
-- Other recommended preparation: download the latest OpenCore Legacy Patcher ([OpenCore-Patcher-GUI.app](https://github.com/dortania/OpenCore-Legacy-Patcher/releases "GitHub - dortania/OpenCore-Legacy-Patcher/releases") ) and save a copy for later use. 
-	
 **Step 2.** Modify the boot-args (to disable the video card hardware acceleration)
 
 - boot-args:  config.plist->Root->NVRAM->7C436110-AB2A-4BBB-A880-FE41995C9F82->boot-args
 - Add the following flags to the boot-args:
 	- "-amd_no_dgpu_accel" &nbsp;&nbsp;&nbsp;&nbsp; if you have an AMD/Radeon card
 	- “nv_disable=1” &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if you have an nVidia Kepler card
-- optional:
-	~~- "revpatch=sbvmm" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for Sonoma 14.3 only. Not needed for 14.2, or 14.3.1 (my own testing). Otherwise, you may encounter "Software Update Error” after 1st reboot. If you encounter this error, just do a restart (or reboot) and the install should complete succesfully, except that the boot partition would end up as “Sonoma - Data” (you could rename it later).~~
 
-**Step 3.** Install Sonoma/ventura (latest version recommended)
+**Step 3.** Install Sequoia/Sonoma/ventura (by booting from the USB installer
 
 - Reboot with the modified boot-args from Step 2. Make sure to perform a NVRAM reset (Important! **Note:** at OC boot screen, hit SPACE BAR to show NVRAM RESET option)
 - Start Sonoma/Ventura installation:
-	 - by booting from an USB installer stick (follow Dortania's Guide to create a full USB installer ([Here](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html))).
+	 - by booting from the USB installer stick.
 	 - Note: In-OS update is not recommended. ~~for updating from existing Ventura/Sonoma, directly from a downloaded full installer copied to the Application folder.~~
 - Once Sonoma is installed successfully, proceed to Step 4.
 
