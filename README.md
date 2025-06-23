@@ -1,19 +1,20 @@
-# OpenCore EFI for HP Z420-Z620-Z820 (0.9.7)
+# OpenCore EFI for HP Z420-Z620-Z820 (1.0.4)
 
-**(2/12/2024) Release 3.4**
+**(6/22/2025) Release 3.5**
 
-- Added Sonona/Ventura support.
+- OC 1.0.4 update. Tested on Sequoia 15.4.
 
 # About this EFI
 
 **1. macOS support**
 
-- **Catalina/Big Sur/Monterey:**
-	- Native support (Recommended. Recommend release V3.3 EFI for Monterey or below)
-	
-- **Ventura/Sonoma:**
+- **Ventura/Sonoma/Sequaio:**
 	- Root patching with OCLP is required to enable graphic hardware acceleration. Check [OCLP page](https://github.com/dortania/OpenCore-Legacy-Patcher "GitHub - dortania/OpenCore-Legacy-Patcher") for other limitations. 
 	- Please follow the **step-by-step instruction** below.
+
+- **Catalina/Big Sur/Monterey:**
+	- Native support (Recommend using release V3.3 EFI)
+	
 #
 
 **2. Supported Hardware**
@@ -90,6 +91,7 @@ The steps outlined below were tailored from the excellent [instruction guide](ht
 - Use the correct CPU PM file.
 - Verify that this EFI works with your current Monterey/Big Sur setup (if you have one installed), with full CPU power management (use Intel Power Gadget tool).
 
+- Other recommended preparation: download the latest OpenCore Legacy Patcher ([OpenCore-Patcher-GUI.app](https://github.com/dortania/OpenCore-Legacy-Patcher/releases "GitHub - dortania/OpenCore-Legacy-Patcher/releases") ) and save a copy for later use. 
 	
 **Step 2.** Modify the boot-args (to disable the video card hardware acceleration)
 
@@ -98,14 +100,14 @@ The steps outlined below were tailored from the excellent [instruction guide](ht
 	- "-amd_no_dgpu_accel" &nbsp;&nbsp;&nbsp;&nbsp; if you have an AMD/Radeon card
 	- “nv_disable=1” &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if you have an nVidia Kepler card
 - optional:
-	- "revpatch=sbvmm" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for Sonoma 14.3 only. Not needed for 14.2, or 14.3.1 (my own testing). Otherwise, you may encounter "Software Update Error” after 1st reboot. If you encounter this error, just do a restart (or reboot) and the install should complete succesfully, except that the boot partition would end up as “Sonoma - Data” (you could rename it later).
+	~~- "revpatch=sbvmm" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for Sonoma 14.3 only. Not needed for 14.2, or 14.3.1 (my own testing). Otherwise, you may encounter "Software Update Error” after 1st reboot. If you encounter this error, just do a restart (or reboot) and the install should complete succesfully, except that the boot partition would end up as “Sonoma - Data” (you could rename it later).~~
 
 **Step 3.** Install Sonoma/ventura (latest version recommended)
 
 - Reboot with the modified boot-args from Step 2. Make sure to perform a NVRAM reset (Important! **Note:** at OC boot screen, hit SPACE BAR to show NVRAM RESET option)
 - Start Sonoma/Ventura installation:
-	 - by booting from an USB installer stick (my recommendation), or
-	 - for updating from existing Ventura/Sonoma, directly from a downloaded full installer copied to the Application folder.
+	 - by booting from an USB installer stick (follow Dortania's Guide to create a full USB installer ([Here](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html))), ~~or~~
+	 - In OS update is not recommended. ~~for updating from existing Ventura/Sonoma, directly from a downloaded full installer copied to the Application folder.~~
 - Once Sonoma is installed successfully, proceed to Step 4.
 
 **Step 4:** Apply OCLP patcher (to enable graphics card acceleration).
@@ -142,12 +144,17 @@ The steps outlined below were tailored from the excellent [instruction guide](ht
 # 
 
 # ------------ Release History ------------
-# Release 3.4 - Added Sonoma/Ventura support
-(2/12/2023)
+# Release 3.5 - Added Sonoma/Ventura support
+(6/22/2025)
+** OC 1.0.4 update
+** Tested Sequoia 15.5.
 
+# Release 3.4 - Added Sonoma/Ventura support
+(2/12/2024)
+** Added Sonona/Ventura support.
 
 # Release 3.3 - Updated OC to 0.9.7
-(2/8/2023)
+(2/8/2024)
 
 ** Updated OpenCore to 0.9.7
 ** Removed EFI 0.7.1 folder. Catalina is supported by the newer EFI 0.9.7.
