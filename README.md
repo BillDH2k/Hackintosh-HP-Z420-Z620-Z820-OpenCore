@@ -89,7 +89,7 @@ The steps outlined below were tailored from the excellent [instruction guide](ht
 **Step 1.** Pick the correct config.plist templatye (section 4.2 above)
 
 - Use the correct CPU PM file.
-- Verify that this EFI works with your current Monterey/Big Sur setup (if you have one installed), with full CPU power management (use Intel Power Gadget tool).
+- Verify that this EFI works with your current Monterey/Big Sur setup (if you have one installed), with full CPU power management (use Intel Power Gadget tool to check).
 
 - Other recommended preparation: download the latest OpenCore Legacy Patcher ([OpenCore-Patcher-GUI.app](https://github.com/dortania/OpenCore-Legacy-Patcher/releases "GitHub - dortania/OpenCore-Legacy-Patcher/releases") ) and save a copy for later use. 
 	
