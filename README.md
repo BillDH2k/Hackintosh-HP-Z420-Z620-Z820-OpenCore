@@ -106,8 +106,8 @@ The steps outlined below were tailored from the excellent [instruction guide](ht
 
 - Reboot with the modified boot-args from Step 2. Make sure to perform a NVRAM reset (Important! **Note:** at OC boot screen, hit SPACE BAR to show NVRAM RESET option)
 - Start Sonoma/Ventura installation:
-	 - by booting from an USB installer stick (follow Dortania's Guide to create a full USB installer ([Here](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html))), ~~or~~
-	 - In OS update is not recommended. ~~for updating from existing Ventura/Sonoma, directly from a downloaded full installer copied to the Application folder.~~
+	 - by booting from an USB installer stick (follow Dortania's Guide to create a full USB installer ([Here](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html))).
+	 - Note: In-OS update is not recommended. ~~for updating from existing Ventura/Sonoma, directly from a downloaded full installer copied to the Application folder.~~
 - Once Sonoma is installed successfully, proceed to Step 4.
 
 **Step 4:** Apply OCLP patcher (to enable graphics card acceleration).
@@ -116,8 +116,9 @@ The steps outlined below were tailored from the excellent [instruction guide](ht
 	- csr-active-config to 03080000
 	- Add “amfi=0x80” to boot-args
 - Reboot. Perform NVRAM reset (Important). Reboot again.
-- Download the latest OCLP patcher ([OpenCore-Patcher-GUI.app](https://github.com/dortania/OpenCore-Legacy-Patcher/releases "GitHub - dortania/OpenCore-Legacy-Patcher/releases") )
+- Install the latest OCLP patcher ([OpenCore-Patcher-GUI.app](https://github.com/dortania/OpenCore-Legacy-Patcher/releases "GitHub - dortania/OpenCore-Legacy-Patcher/releases") )
 - Launch the OCLP patcher and choose “Post-Install Root Patch”.
+- Exit OCLP (not need to reboot) and goto next step 6.
 
 **Step 5:** Post OCLP change
 
