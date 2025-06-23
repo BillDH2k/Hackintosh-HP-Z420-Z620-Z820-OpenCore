@@ -52,10 +52,10 @@
 - For Sandy-bridge CPUs (V1 Xeon's), use **config_SandyCPUs.plist** (rename it to config.plist).
 - For Ivy-bridge CPUs (V2 Xeon's), use **config_IvyCPUs.plist** (rename it to config.plist).
 - If you have 2643V2, 2667V2, or 2687w V2 CPUs, use the corresponding customized c**onfig_26XXV2.plist**.
-- Choose the correct CPU PM file that matches your CPU (e.g. SSDT_2650V2.aml, for 2650V2 CPU):
+- For proper CPU Power Management, choose the correct CPU PM file that matches your CPU model (e.g. SSDT_2650V2.aml, for 2650V2):
 	- You may either overwrite SSDT_CPUPM.aml file with your matching PM file, or
 	- Modify config.list (ACPI->Add section) to pick the right CPU PM file
-	- If your CPU is not listed, ~~try SSDT_CPUPM.am (default, currently as 2670V1),~~ disable use of any PM file. Once install is completed, generate your own (see Post-Install), for optimal power management.
+	- If your CPU is not listed, disable use of any PM file. Once install is completed, generate your own (see Post-Install).
 
 **4.3 For Catalina/Big Sur/Monterey:**
 
@@ -78,7 +78,7 @@
 
 - You must generate and add your own Serial # & Board ID to config.plist
 
-- For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few in the ACPI folder. Simply overwrite "SSDT-CPUPM.aml" with an appropriate file. If you have a different CPU not listed, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file. Additional instruction can be found here: bilbo's "Z820 - High Sierra, the Great Guide" (step #29) ([link](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)). If you have a mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml from config.plist. macOs will run without CPU power management. Once up running, you can generate a correct SSDT file specific to your CPU.
+- For full CPU power management, replace "SSDT-CPUPM.aml" (in ACPI folder) with one matching your CPU model. I have provided a few in the ACPI folder. Simply overwrite "SSDT-CPUPM.aml" with an appropriate file. If you have a different CPU not listed, you need to run **ssdtPRGen** ([link](https://github.com/Piker-Alpha/ssdtPRGen.sh)) to create a new SSDT file. Additional instruction can be found here: bilbo's "Z820 - High Sierra, the Great Guide" (step #29) ([link](https://www.insanelymac.com/forum/topic/335860-guide-2018-z820-high-sierra-the-great-guide-sucess/)). If you have a mismatched CPU, you might experience booting issue. In this case, simply disable SSDT-CPUPM.aml from config.plist. macOS will run without CPU power management. Once up running, you can generate a correct SSDT file specific to your CPU.
 
 
 
