@@ -42,9 +42,9 @@
 
 # 4. EFI Folder
 
-**4.1 EFI with OC 0.9.7**:
+**4.1 EFI with OC 1.0.4**:
 
-- Support Catalina - Sonoma (14.3.1 tested).
+- Support Catalina - Sequoia (15.4 tested).
 - SUMBIOS: MacPro7,1 (default) or iMacPro1,1. MacPro6,1 is supported up to Monterey.
 
 **4.2 Choose the Correct config.plist**:
