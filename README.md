@@ -3,6 +3,7 @@
 **(6/22/2025) Release 3.5**
 
 - OC 1.0.4 update. Tested on Sequoia 15.4.
+- NOTE: All Ventura or higher OS update/install should be done from a full USB installer.
 
 # About this EFI
 
