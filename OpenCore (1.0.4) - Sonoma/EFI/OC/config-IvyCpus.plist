@@ -531,7 +531,7 @@
                     <key>BundlePath</key>
                     <string>AMFIPass.kext</string>
                     <key>Comment</key>
-                    <string>V1.4.0</string>
+                    <string>V1.4.1</string>
                     <key>Enabled</key>
                     <true/>
                     <key>ExecutablePath</key>
@@ -702,6 +702,42 @@
                     <string></string>
                     <key>MinKernel</key>
                     <string>22.0.0</string>
+                    <key>PlistPath</key>
+                    <string>Contents/Info.plist</string>
+                </dict>
+                <dict>
+                    <key>Arch</key>
+                    <string>Any</string>
+                    <key>BundlePath</key>
+                    <string>AstekFusion2Family.kext</string>
+                    <key>Comment</key>
+                    <string>V2.62 - Z820 SAS</string>
+                    <key>Enabled</key>
+                    <false/>
+                    <key>ExecutablePath</key>
+                    <string>Contents/MacOS/AstekFusion2Family</string>
+                    <key>MaxKernel</key>
+                    <string></string>
+                    <key>MinKernel</key>
+                    <string></string>
+                    <key>PlistPath</key>
+                    <string>Contents/Info.plist</string>
+                </dict>
+                <dict>
+                    <key>Arch</key>
+                    <string>Any</string>
+                    <key>BundlePath</key>
+                    <string>AstekFusion2Adapter.kext</string>
+                    <key>Comment</key>
+                    <string>V2.62 121912a - Z820 SAS</string>
+                    <key>Enabled</key>
+                    <false/>
+                    <key>ExecutablePath</key>
+                    <string>Contents/MacOS/AstekFusion2Adapter</string>
+                    <key>MaxKernel</key>
+                    <string></string>
+                    <key>MinKernel</key>
+                    <string></string>
                     <key>PlistPath</key>
                     <string>Contents/Info.plist</string>
                 </dict>
