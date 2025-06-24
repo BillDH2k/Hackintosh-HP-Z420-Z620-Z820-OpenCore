@@ -2,7 +2,7 @@
 
 **(6/22/2025) Release 3.5**
 
-- OC 1.0.4 update. Tested on Sequoia 15.4.
+- OC 1.0.4 update. Tested on Sequoia 15.5.
 - NOTE: All Ventura or newer OS update/install should be done from a full USB installer.
 
 # About this EFI
@@ -45,7 +45,7 @@
 
 **4.1 EFI with OC 1.0.4**:
 
-- Support Catalina - Sequoia (15.4 tested).
+- Support Catalina - Sequoia (15.5 tested).
 - SUMBIOS: MacPro7,1 (default) or iMacPro1,1. MacPro6,1 is supported up to Monterey.
 
 **4.2 Choose the Correct config.plist**:
