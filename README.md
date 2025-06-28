@@ -85,9 +85,9 @@
 
 
 
-# 7. Sonoma/Ventura step-by-step instruction
+# 7. Sequoia/Sonoma/Ventura step-by-step instruction
 
-The steps outlined below were tailored from the excellent [instruction guide](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Ivy_Bridge.md) written by [5T33Z0](https://github.com/5T33Z0).
+The steps outlined below were mostly tailored from the excellent [instruction guide](https://github.com/5T33Z0/OC-Little-Translated/blob/main/14_OCLP_Wintel/Guides/Ivy_Bridge.md) written by [5T33Z0](https://github.com/5T33Z0).
 
 **NOTE**: The following steps assume booting from an USB installer (required to avoid any potential issues).
 
