@@ -147,7 +147,7 @@ The steps outlined below were mostly tailored from the excellent [instruction gu
 # 
 
 # ------------ Release History ------------
-# Release 3.5 - Added Sonoma/Ventura support
+# Release 3.5 - Tested on Sequoia (15.5)
 (6/22/2025)
 ** OC 1.0.4 update
 ** Tested Sequoia 15.5.
